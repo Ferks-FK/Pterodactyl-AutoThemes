@@ -7,5 +7,5 @@ The script installs themes that are compatible with their respective panel versi
 Just run the following command as root user.
 
 ```
-bash <(curl -o linkhere)
+bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/main/install.sh)
 ```
