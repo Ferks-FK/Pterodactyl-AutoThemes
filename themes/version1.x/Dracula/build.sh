@@ -71,6 +71,7 @@ check_distro() {
 
 #### Install Dependencies ####
 
+dependencies() {
 case "$OS" in
 debian | ubuntu)
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - && apt-get install -y nodejs
@@ -81,6 +82,7 @@ centos)
 [ "$OS_VER_MAJOR" == "8" ] && curl -sL https://rpm.nodesource.com/setup_14.x | sudo -E bash - && sudo dnf install -y nodejs yarn
 ;;
 esac
+}
 
 
 #### Donwload Files ####
@@ -128,6 +130,7 @@ print_brake 25
 
 #### Exec Script ####
 check_distro
+dependencies
 download_files
 production
 bye
