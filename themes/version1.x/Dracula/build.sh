@@ -72,6 +72,9 @@ check_distro() {
 #### Install Dependencies ####
 
 dependencies() {
+print_brake 20
+echo "* ${GREEN}Installing dependencies...${reset}"
+print_brake 20
 case "$OS" in
 debian | ubuntu)
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - && apt-get install -y nodejs
@@ -86,9 +89,13 @@ esac
 
 
 #### Donwload Files ####
+print_brake 25
+echo "* ${GREEN}Downloading files...${reset}"
+print_brake 25
 download_files() {
 cd /var/www/pterodactyl/resources/scripts
 curl -o user.css https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/main/themes/version1.x/Dracula/user.css
+curl -o admin.css https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/main/themes/version1.x/Dracula/admin.css
 rm -R index.tsx
 curl -o index.tsx https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/main/themes/version1.x/Dracula/index.tsx
 cd
@@ -103,11 +110,9 @@ production() {
 DIR=/var/www/pterodactyl
 
 if [ -d "$DIR" ]; then
-echo
-echo "**********************"
-echo "* Producing panel... *"
-echo "**********************"
-echo
+print_brake 25
+echo "* ${GREEN}Producing panel...${reset}"
+print_brake 25
 npm i -g yarn
 cd /var/www/pterodactyl
 yarn install
@@ -118,13 +123,13 @@ fi
 
 
 bye() {
-print_brake 25
+print_brake 40
 echo
 echo -e "* ${GREEN}The theme ${YELLOW}Dracula${GREEN} was successfully installed.${reset}"
 echo -e "* ${GREEN}Thank you for using this script.${reset}"
-echo -e "* ${GREEN}Support group: $(hyperlink "$SUPPORT_LINK")"
+echo -e "* ${GREEN}Support group: $(hyperlink "$SUPPORT_LINK")${reset}"
 echo
-print_brake 25
+print_brake 40
 }
 
 
