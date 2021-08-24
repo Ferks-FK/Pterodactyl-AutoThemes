@@ -127,6 +127,7 @@ print_brake 25
 
 
 #### Exec Script ####
+check_distro
 download_files
 production
 bye
