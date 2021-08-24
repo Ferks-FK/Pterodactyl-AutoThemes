@@ -72,9 +72,11 @@ check_distro() {
 #### Install Dependencies ####
 
 dependencies() {
-print_brake 20
+echo
+print_brake 30
 echo -e "* ${GREEN}Installing dependencies...${reset}"
-print_brake 20
+print_brake 30
+echo
 case "$OS" in
 debian | ubuntu)
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - && apt-get install -y nodejs
@@ -110,6 +112,7 @@ production() {
 DIR=/var/www/pterodactyl
 
 if [ -d "$DIR" ]; then
+echo
 print_brake 25
 echo -e "* ${GREEN}Producing panel...${reset}"
 print_brake 25
@@ -123,13 +126,13 @@ fi
 
 
 bye() {
-print_brake 40
+print_brake 50
 echo
 echo -e "* ${GREEN}The theme ${YELLOW}Dracula${GREEN} was successfully installed.${reset}"
 echo -e "* ${GREEN}Thank you for using this script.${reset}"
 echo -e "* ${GREEN}Support group: $(hyperlink "$SUPPORT_LINK")${reset}"
 echo
-print_brake 40
+print_brake 50
 }
 
 
