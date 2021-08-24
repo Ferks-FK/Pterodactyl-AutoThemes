@@ -123,6 +123,7 @@ echo -e "* ${GREEN}The theme ${YELLOW}Dracula${GREEN} was successfully installed
 echo -e "* ${GREEN}Thank you for using this script.${reset}"
 echo -e "* ${GREEN}Support group: $(hyperlink "$SUPPORT_LINK")"
 echo
+print_brake 25
 }
 
 
