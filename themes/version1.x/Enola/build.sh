@@ -13,6 +13,8 @@ set -e
 ########################################################
 
 #### Variables ####
+SCRIPT_VERSION="v0.1"
+ENOLA="https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/Enola/admin.css"
 SUPPORT_LINK="https://discord.gg/buDBbSGJmQ"
 
 
@@ -104,6 +106,7 @@ cd
 cd /var/www/pterodactyl/resources/views/layouts
 rm -R admin.blade.php
 curl -o admin.blade.php https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/main/themes/version1.x/Elona/admin.blade.php
+sed -i -e "s@<STYLE-ADMIN>@${ENOLA}@g" /var/www/pterodactyl/resources/views/layouts/admin.blade.php
 }
 
 #### Panel Production ####
