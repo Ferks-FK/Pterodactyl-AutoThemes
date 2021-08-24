@@ -88,13 +88,13 @@ esac
 #### Donwload Files ####
 download_files() {
 cd /var/www/pterodactyl/resources/scripts
-curl -o user.css https://github.com/Ferks-FK/Pterodactyl-AutoThemes/blob/main/themes/version1.x/Dracula/user.css
+curl -o user.css https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/main/themes/version1.x/Dracula/user.css
 rm -R index.tsx
-curl -o index.tsx https://github.com/Ferks-FK/Pterodactyl-AutoThemes/blob/main/themes/version1.x/Dracula/index.tsx
+curl -o index.tsx https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/main/themes/version1.x/Dracula/index.tsx
 cd
 cd /var/www/pterodactyl/resources/views/layouts
 rm -R admin.blade.php
-curl -o admin.blade.php https://github.com/Ferks-FK/Pterodactyl-AutoThemes/blob/main/themes/version1.x/Dracula/admin.blade.php
+curl -o admin.blade.php https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/main/themes/version1.x/Dracula/admin.blade.php
 }
 
 #### Panel Production ####
