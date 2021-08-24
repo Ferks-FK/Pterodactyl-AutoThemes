@@ -14,7 +14,7 @@ set -e
 
 #### Variables ####
 SCRIPT_VERSION="v0.1"
-DRACULA="https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/Dracula/admin.blade.php"
+DRACULA="https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/Dracula/admin.css"
 SUPPORT_LINK="https://discord.gg/buDBbSGJmQ"
 
 
@@ -98,13 +98,13 @@ echo -e "* ${GREEN}Downloading files...${reset}"
 print_brake 25
 download_files() {
 cd /var/www/pterodactyl/resources/scripts
-curl -o user.css https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/main/themes/version1.x/Dracula/user.css
+curl -o user.css https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/Dracula/user.css
 rm -R index.tsx
-curl -o index.tsx https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/main/themes/version1.x/Dracula/index.tsx
+curl -o index.tsx https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/Dracula/index.tsx
 cd
 cd /var/www/pterodactyl/resources/views/layouts
 rm -R admin.blade.php
-curl -o admin.blade.php https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/main/themes/version1.x/Dracula/admin.blade.php
+curl -o admin.blade.php https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/Dracula/admin.blade.php
 sed -i -e "s@<STYLE-ADMIN>@${DRACULA}@g" /var/www/pterodactyl/resources/views/layouts/admin.blade.php
 }
 
