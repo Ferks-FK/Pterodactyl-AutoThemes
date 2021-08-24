@@ -34,7 +34,6 @@ hyperlink() {
 GREEN="\e[0;92m"
 YELLOW="\033[1;33m"
 reset="\e[0m"
-red='\033[0;31m'
 
 
 #### OS check ####
