@@ -33,7 +33,7 @@
             {!! Theme::css('css/pterodactyl.css?t={cache-version}') !!}
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-            <link rel="stylesheet" href="../scripts/admin.css">
+            <link rel="stylesheet" href="<STYLE-ADMIN>">
 
             <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
