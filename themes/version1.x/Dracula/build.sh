@@ -73,7 +73,7 @@ check_distro() {
 
 dependencies() {
 print_brake 20
-echo "* ${GREEN}Installing dependencies...${reset}"
+echo -e "* ${GREEN}Installing dependencies...${reset}"
 print_brake 20
 case "$OS" in
 debian | ubuntu)
@@ -90,7 +90,7 @@ esac
 
 #### Donwload Files ####
 print_brake 25
-echo "* ${GREEN}Downloading files...${reset}"
+echo -e "* ${GREEN}Downloading files...${reset}"
 print_brake 25
 download_files() {
 cd /var/www/pterodactyl/resources/scripts
@@ -111,7 +111,7 @@ DIR=/var/www/pterodactyl
 
 if [ -d "$DIR" ]; then
 print_brake 25
-echo "* ${GREEN}Producing panel...${reset}"
+echo -e "* ${GREEN}Producing panel...${reset}"
 print_brake 25
 npm i -g yarn
 cd /var/www/pterodactyl
