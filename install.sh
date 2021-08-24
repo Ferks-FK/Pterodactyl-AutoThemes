@@ -80,15 +80,15 @@ print_brake 70
 echo
 
 Dracula() {
-bash <(curl -s https://github.com/Ferks-FK/Pterodactyl-AutoThemes/tree/main/themes/version1.x/Dracula)
+bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/Dracula/build.sh)
 }
 
 Enola() {
-bash <(curl -s https://github.com/Ferks-FK/Pterodactyl-AutoThemes/tree/main/themes/version1.x/Enola)
+bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}themes/version1.x/Enola/build.sh)
 }
 
 Twilight() {
-bash <(curl -s https://github.com/Ferks-FK/Pterodactyl-AutoThemes/tree/main/themes/version1.x/Twilight)
+bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/Twilight/build.sh)
 }
 
 while [ "$done" == false ]; do
