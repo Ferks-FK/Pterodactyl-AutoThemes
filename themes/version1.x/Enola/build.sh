@@ -104,7 +104,7 @@ curl -o index.tsx https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThe
 cd
 cd /var/www/pterodactyl/resources/views/layouts
 rm -R admin.blade.php
-curl -o admin.blade.php https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/Elona/admin.blade.php
+curl -o admin.blade.php https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/Enola/admin.blade.php
 sed -i -e "s@<STYLE-ADMIN>@${ENOLA}@g" /var/www/pterodactyl/resources/views/layouts/admin.blade.php
 }
 
