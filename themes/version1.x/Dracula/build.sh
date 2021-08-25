@@ -13,8 +13,7 @@ set -e
 ########################################################
 
 #### Variables ####
-SCRIPT_VERSION="v0.1"
-DRACULA="https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/Dracula/admin.css"
+DRACULA="https://pterothemes.gq/latest/Dracula/admin.css"
 SUPPORT_LINK="https://discord.gg/buDBbSGJmQ"
 
 
