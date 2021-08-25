@@ -98,7 +98,6 @@ print_brake 25
 download_files() {
 cd /var/www/pterodactyl/resources/scripts
 curl -o user.css https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERION}/themes/version1.x/Enola/user.css
-curl -o admin.css https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERION}/themes/version1.x/Enola/admin.css
 rm -R index.tsx
 curl -o index.tsx https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERION}/themes/version1.x/Enola/index.tsx
 cd
