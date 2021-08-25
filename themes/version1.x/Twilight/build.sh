@@ -14,7 +14,7 @@ set -e
 
 #### Variables ####
 SCRIPT_VERSION="v0.1"
-TWILIGHT="https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/Twilight/admin.css"
+TWILIGHT="https://pterothemes.gq/latest/Twilight/admin.css"
 SUPPORT_LINK="https://discord.gg/buDBbSGJmQ"
 
 
@@ -98,14 +98,13 @@ echo -e "* ${GREEN}Downloading files...${reset}"
 print_brake 25
 download_files() {
 cd /var/www/pterodactyl/resources/scripts
-curl -o user.css https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/main/themes/version1.x/Twilight/user.css
-curl -o admin.css https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/main/themes/version1.x/Twilight/admin.css
+curl -o user.css https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/Twilight/user.css
 rm -R index.tsx
-curl -o index.tsx https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/main/themes/version1.x/Twilight/index.tsx
+curl -o index.tsx https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/Twilight/index.tsx
 cd
 cd /var/www/pterodactyl/resources/views/layouts
 rm -R admin.blade.php
-curl -o admin.blade.php https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/main/themes/version1.x/Twilight/admin.blade.php
+curl -o admin.blade.php https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/Twilight/admin.blade.php
 sed -i -e "s@<STYLE-ADMIN>@${TWILIGHT}@g" /var/www/pterodactyl/resources/views/layouts/admin.blade.php
 }
 
