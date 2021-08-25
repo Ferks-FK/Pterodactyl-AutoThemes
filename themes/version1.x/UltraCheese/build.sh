@@ -102,7 +102,7 @@ cd tmp
 curl -sSLo UltraCheese.tar.gz https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/UltraCheese/UltraCheese.tar.gz
 tar -xzvf UltraCheese.tar.gz
 cd UltraCheese
-cp -R -- * /var/www/pterodactyl
+cp -rf -- * /var/www/pterodactyl
 cd
 cd /var/www/pterodactyl
 rm -R tmp
@@ -121,7 +121,6 @@ print_brake 25
 npm i -g yarn
 cd /var/www/pterodactyl
 yarn install
-yarn add @emotion/react
 yarn build:production
 fi
 }
