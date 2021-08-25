@@ -120,7 +120,8 @@ echo -e "* ${GREEN}Producing panel...${reset}"
 print_brake 25
 npm i -g yarn
 cd /var/www/pterodactyl
-yarn
+yarn install
+yarn add @emotion/react
 yarn build:production
 fi
 }
