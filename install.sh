@@ -12,7 +12,7 @@ set -e
 #
 ########################################################
 
-SCRIPT_VERSION="v0.1"
+SCRIPT_VERSION="v0.2"
 
 
 print_brake() {
@@ -91,11 +91,16 @@ Twilight() {
 bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/Twilight/build.sh)
 }
 
+UltraCheese() {
+bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/UltraCheese/build.sh)
+}
+
 while [ "$done" == false ]; do
   options=(
     "Install Dracula (Only 1.x)"
     "Install Enola (Only 1.x)"
     "Install Twilight (Only 1.x)"
+    "Install UltraCheese (Only 1.x)"
     
     "Cancel Installation"
   )
@@ -104,6 +109,7 @@ while [ "$done" == false ]; do
     "Dracula"
     "Enola"
     "Twilight"
+    "UltraCheese"
     
     "cancel"
   )
