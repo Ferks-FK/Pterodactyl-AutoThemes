@@ -98,13 +98,13 @@ echo -e "* ${GREEN}Downloading files...${reset}"
 print_brake 25
 download_files() {
 cd /var/www/pterodactyl/resources/scripts
-curl -o user.css https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERION}/themes/version1.x/Enola/user.css
+curl -o user.css https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/Enola/user.css
 rm -R index.tsx
 curl -o index.tsx https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/Enola/index.tsx
 cd
 cd /var/www/pterodactyl/resources/views/layouts
 rm -R admin.blade.php
-curl -o admin.blade.php https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERION}/themes/version1.x/Elona/admin.blade.php
+curl -o admin.blade.php https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/Elona/admin.blade.php
 sed -i -e "s@<STYLE-ADMIN>@${ENOLA}@g" /var/www/pterodactyl/resources/views/layouts/admin.blade.php
 }
 
