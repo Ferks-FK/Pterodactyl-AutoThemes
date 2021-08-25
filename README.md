@@ -33,12 +33,4 @@ bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes
 ### Admin:
 ![admin3](https://user-images.githubusercontent.com/69549678/130691022-f58fb982-4122-460a-a73b-155a80a57c3d.png)
 
-## Ultra Cheese
-### Login:
-![ouhrXVe](https://user-images.githubusercontent.com/69549678/130691526-932daf0e-fd51-4543-9d80-da9b980a7383.png)
-
-### User:
-![admin](https://user-images.githubusercontent.com/69549678/130691632-c3818737-a395-411d-b16c-5bb7879ef368.png)
-
-
 
