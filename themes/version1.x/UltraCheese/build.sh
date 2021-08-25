@@ -129,7 +129,7 @@ fi
 bye() {
 print_brake 50
 echo
-echo -e "* ${GREEN}The theme ${YELLOW}Dracula${GREEN} was successfully installed.${reset}"
+echo -e "* ${GREEN}The theme ${YELLOW}UltraCheese${GREEN} was successfully installed.${reset}"
 echo -e "* ${GREEN}Thank you for using this script.${reset}"
 echo -e "* ${GREEN}Support group: $(hyperlink "$SUPPORT_LINK")${reset}"
 echo
