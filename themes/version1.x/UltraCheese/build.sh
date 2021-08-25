@@ -99,7 +99,7 @@ download_files() {
 cd /var/www/pterodactyl
 mkdir -p tmp
 cd tmp
-curl -o UltraCheese.zip https://github.com/Ferks-FK/Pterodactyl-AutoThemes/tree/${SCRIPT_VERSION}/themes/version1.x/UltraCheese/UltraCheese.zip
+curl -sSLo UltraCheese.zip https://github.com/Ferks-FK/Pterodactyl-AutoThemes/tree/${SCRIPT_VERSION}/themes/version1.x/UltraCheese/UltraCheese.zip
 unzip UltraCheese.zip
 cd UltraCheese
 cp -R -- * /var/www/pterodactyl
