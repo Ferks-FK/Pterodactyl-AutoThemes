@@ -3,6 +3,9 @@ This is a theme installation script for the [Pterodactyl Panel](https://github.c
 
 The script installs themes that are compatible with their respective panel versions.
 
+![Capturar](https://user-images.githubusercontent.com/69549678/131016943-bfa32a49-6812-4f6b-9cd7-eaf99e1ec0ca.PNG)
+
+
 # How to use
 Just run the following command as root user.
 
