@@ -113,7 +113,7 @@ print_brake 25
 cd /var/www/pterodactyl
 mkdir -p temp
 cd temp
-curl -sSLo TangoTwist.tar.gz https://raw.githubusercontent.com/Alok-NetWork/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version0.7.19/TangoTwist/TangoTwist.tar.gz
+curl -sSLo TangoTwist.tar.gz https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version0.7.19/TangoTwist/TangoTwist.tar.gz
 tar -xzvf TangoTwist.tar.gz
 cd TangoTwist
 cp -rf -- * /var/www/pterodactyl
