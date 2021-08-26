@@ -13,6 +13,14 @@ Just run the following command as root user.
 ```
 bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/main/install.sh)
 ```
+## Attention!
+*Do not run the command using sudo.*
+
+**Example:** ```$ sudo bash <(curl -s...```
+
+*You must be logged into your system as root to use the command.*
+
+**Example:** ```# bash <(curl -s...```
 
 # Themes for the 1.x panel
 
