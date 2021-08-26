@@ -113,7 +113,7 @@ print_brake 25
 cd /var/www/pterodactyl
 mkdir -p temp
 cd temp
-curl -sSLo LimeStitch.tar.gz https://raw.githubusercontent.com/Alok-NetWork/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version0.7.19/LimeStitch/LimeStitch.tar.gz
+curl -sSLo LimeStitch.tar.gz https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version0.7.19/LimeStitch/LimeStitch.tar.gz
 tar -xzvf LimeStitch.tar.gz
 cd LimeStitch
 cp -rf -- * /var/www/pterodactyl
