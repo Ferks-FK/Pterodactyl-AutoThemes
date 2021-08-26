@@ -1,0 +1,715 @@
+/* Changes Background */
+
+body,
+.content-wrapper {
+	background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIj48ZGVmcz48cGF0dGVybiBpZD0icGF0dGVybiIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgNDAsNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSgxMjApICI+PHJlY3QgaWQ9InBhdHRlcm4tYmFja2dyb3VuZCIgd2lkdGg9IjQwMCUiIGhlaWdodD0iNDAwJSIgZmlsbD0icmdiYSg0MSwgNDAsIDY1LDEpIj48L3JlY3Q+IDxwYXRoIGZpbGw9InJnYmEoMjQ3LCAyNTAsIDI1MiwxKSIgZD0iTS0xIDIwIGgyIHYyIGgtMiB6TTM5IDIwIGgyIHYyIGgtMiB6Ij48L3BhdGg+PHBhdGggZmlsbD0icmdiYSgxMTQsIDEzNywgMjE4LDEpIiBkPSJNMTkuNSAyMCBoMSB2MiBoLTEgek01OS41IDIwIGgxIHYyIGgtMSB6Ij48L3BhdGg+PC9wYXR0ZXJuPiAgPC9kZWZzPiA8cmVjdCBmaWxsPSJ1cmwoI3BhdHRlcm4pIiBoZWlnaHQ9IjEwMCUiIHdpZHRoPSIxMDAlIj48L3JlY3Q+PC9zdmc+") !important;
+}
+
+
+/* Changes Header Color */
+
+.ebtnLL,
+.cWFcHc,
+.iTxXDX,
+.JZicT,
+.skin-blue .wrapper,
+.skin-blue .main-sidebar,
+.skin-blue .left-side,
+.skin-blue .main-header .navbar,
+.skin-blue .main-header .logo,
+.main-footer {
+	background-color: #242338 !important;
+	border-color: transparent !important;
+	box-shadow: none !important;
+}
+
+
+/* Changes selected tab color */
+
+.fmPgAW>a:active,
+.fmPgAW>.navigation-link:active,
+.fmPgAW>a:hover,
+.fmPgAW>.navigation-link:hover,
+.fmPgAW>a.active,
+.fmPgAW>.navigation-link.active,
+.cWFcHc>div>a:active,
+.cWFcHc>div>div:active,
+.cWFcHc>div>a.active,
+.cWFcHc>div>div.active,
+.jMDToC>a:active,
+.jMDToC>.navigation-link:active,
+.jMDToC>a:hover,
+.jMDToC>.navigation-link:hover,
+.jMDToC>a.active,
+.jMDToC>.navigation-link.active,
+.JZicT>div>a:active,
+.JZicT>div>div:active,
+.JZicT>div>a.active,
+.JZicT>div>div.active {
+	box-shadow: #7289da 0px -2px inset !important;
+	background-color: #242338 !important;
+}
+
+
+/* Changes Text Color */
+
+.fNmetC,
+.hcJQtJ,
+.ToRTP,
+.dPhkRJ,
+.cKOMAz,
+.jSyjnD,
+.jywpgX,
+.eFKDEh,
+.dUzAFF,
+.cbFifO,
+.farUaV,
+.dMZZHB,
+.lgYuLu,
+.gSUxYg,
+.cdBzyv,
+.gxlLzB,
+.jexamK,
+.eWxPIu,
+.eWxPIu:hover,
+.jXGwrM,
+.mIIYh,
+.iambCQ,
+.iZqkRd,
+.chAlWS,
+.iTwxpv,
+.skin-blue .main-header .logo,
+.jVPRyV,
+.khFmcN {
+	color: #fafafa !important;
+}
+
+
+/* Changes disabled switch */
+
+.gdhLjd>label,
+.cDmYBr>label {
+	background-color: #242338 !important;
+	border-color: #242338 !important;
+}
+
+
+/* Changes enabled switch */
+
+.gdhLjd>input[type="checkbox"]:checked+label,
+.cDmYBr>input[type="checkbox"]:checked+label {
+	background-color: #7289da !important;
+	border-color: #7289da !important;
+}
+
+
+/* Changes server list color */
+
+.liBonM,
+.bOIdGn,
+.jkiDvQ,
+.iYhzbi,
+.jqQFoq,
+.bEKRkc,
+.dRhlIo {
+	background-color: #242338 !important;
+	border-radius: 15px !important;
+	border-color: #242338 !important;
+}
+
+
+/* Changes border when hover */
+
+.liBonM:hover,
+.kHuGmn:hover,
+.dRhlIo:hover,
+.bEKRkc:hover {
+	border-color: #7289da !important;
+}
+
+
+/* Changes status bar position and size */
+
+.jkiDvQ .status-bar,
+.bvinzM .status-bar,
+.iYhzbi .status-bar,
+.liBonM .status-bar,
+.jqQFoq .status-bar,
+.bEKRkc .status-bar,
+.dRhlIo .status-bar {
+	height: 7vw !important;
+	right: -.25vw !important;
+}
+
+
+/* Changes Installing Status, and other bubble text */
+
+.hNrKxe,
+.dMZZHB,
+.dHRxAp,
+.epSLdr,
+.bsrsDD,
+.ffSVrP,
+.fZqvbJ,
+.fLfaAY,
+.bsSkeI,
+.jIIIrT,
+.EwfIk,
+.izAmwE,
+code {
+	border-radius: 15px;
+	background-color: #7289da !important;
+	border-color: #7289da !important;
+	color: #fafafa !important;
+}
+
+
+/* Changes server icons */
+
+.kHuGmn .icon,
+.jkiDvQ .icon,
+.bvinzM .icon,
+.iYhzbi .icon,
+.liBonM .icon,
+.jqQFoq .icon,
+.dRhlIo .icon {
+	background-color: #7289da !important;
+	color: #fafafa !important;
+}
+
+
+/* Changes account settings area */
+
+.hfBvRz,
+.fenved {
+	border-radius: 15px;
+	background-color: #242338 !important;
+	border-color: #7289da !important;
+}
+
+
+/* Changes input areas */
+
+.eDhiE:not([type="checkbox"]):not([type="radio"]),
+.lepTyw:not([type="checkbox"]):not([type="radio"]),
+.eDhiE[type="checkbox"],
+.eDhiE[type="radio"],
+.hDlyZJ:not(.disabled):hover,
+.farUaV,
+.iZMsvi,
+.iYSUfg,
+.cKwXAB,
+.ixeRNi:hover,
+.jVkAsT:not([type="checkbox"]):not([type="radio"]),
+.kmvYjP:not([type="checkbox"]):not([type="radio"]),
+.hsUiOF,
+.jrraLb,
+.icxFlO:hover,
+.gYNKkb,
+.elUIig:hover,
+.ekbHAG,
+.btn-primary,
+.btn-warning,
+.btn-success,
+.btn-danger,
+.alert-danger,
+.input-group .input-group-addon,
+.select2-container--default .select2-selection--single,
+.select2-container--default .select2-selection--multiple,
+.bg-red,
+.bg-yellow,
+.bg-aqua,
+.bg-blue,
+.bg-light-blue,
+.bg-green,
+.bg-navy,
+.bg-teal,
+.bg-olive,
+.bg-lime,
+.bg-orange,
+.bg-fuchsia,
+.bg-purple,
+.bg-maroon,
+.bg-black,
+.bg-red-active,
+.bg-yellow-active,
+.bg-aqua-active,
+.bg-blue-active,
+.bg-light-blue-active,
+.bg-green-active,
+.bg-navy-active,
+.bg-teal-active,
+.bg-olive-active,
+.bg-lime-active,
+.bg-orange-active,
+.bg-fuchsia-active,
+.bg-purple-active,
+.bg-maroon-active,
+.bg-black-active,
+.callout.callout-danger,
+.callout.callout-warning,
+.callout.callout-info,
+.callout.callout-success,
+.alert-success,
+.alert-danger,
+.alert-error,
+.alert-warning,
+.alert-info,
+.label-danger,
+.label-info,
+.label-warning,
+.label-primary,
+.label-success,
+.modal-primary .modal-body,
+.modal-primary .modal-header,
+.modal-primary .modal-footer,
+.modal-warning .modal-body,
+.modal-warning .modal-header,
+.modal-warning .modal-footer,
+.modal-info .modal-body,
+.modal-info .modal-header,
+.modal-info .modal-footer,
+.modal-success .modal-body,
+.modal-success .modal-header,
+.modal-success .modal-footer,
+.modal-danger .modal-body,
+.modal-danger .modal-header,
+.modal-danger .modal-footer {
+	border-color: #413f66 !important;
+	background-color: #1e1d2d !important;
+	border-radius: 15px !important;
+}
+
+
+/* Changes header-upper */
+
+.kwjWaB,
+.grusjm,
+.cswOgL,
+.cnbtLx,
+.bPeJFv,
+.bWXUsX,
+.nav-tabs-custom.nav-tabs-floating>.nav-tabs,
+.box-header.with-border,
+.bg-gray {
+	border-color: #1e1d2d !important;
+	background-color: #1e1d2d !important;
+	border-radius: 15px !important;
+	margin-bottom: .25vw !important;
+	margin-top: .25vw !important;
+	transform: scale(.96);
+}
+
+
+/* Changes header-lower,  */
+
+.ifNwiE,
+.LdCMD,
+.fIhPZJ,
+.cFegvH,
+.box-body {
+	border-color: transparent !important;
+	background-color: #1e1d2d !important;
+	border-radius: 15px !important;
+	margin-top: .25vw !important;
+}
+
+
+/* Hides background of radial areas */
+
+.RkKIC,
+.cRDvbO,
+.dmLxWB,
+.gLxIAb,
+.gHwjbw,
+.WUPIv,
+.dQCdoR,
+.vtEGy,
+.kGXByO,
+.nav-tabs-custom,
+.box,
+.box-footer,
+.small-box>.small-box-footer,
+.bceLDp {
+	background-color: transparent !important;
+	border-top: none !important;
+	box-shadow: none !important;
+}
+
+
+/* Changes console */
+
+.LbmBV,
+.hahdAC {
+	border-radius: 15px !important;
+	background-color: #1e1d2d !important;
+	margin-bottom: .75vw !important;
+}
+
+
+/* Changes console color */
+
+.xterm .xterm-screen,
+.xterm .xterm-viewport {
+	background-color: #1e1d2d !important;
+}
+
+
+/* Changes scroll bar */
+
+::-webkit-scrollbar-thumb:hover {
+	-webkit-box-shadow: inset 0 0 0 1px #7289da, inset 0 0 0 4px #7289da !important;
+}
+
+::-webkit-scrollbar-thumb {
+	border-right-width: 4px !important;
+	border-left-width: 4px !important;
+	-webkit-border-radius: 9px 4px !important;
+	-webkit-box-shadow: inset 0 0 0 1px #7289da, inset 0 0 0 4px #7289da !important;
+}
+
+::-webkit-scrollbar {
+	background: #242338 !important;
+}
+
+
+/* Changes console input */
+
+.JQChZ,
+.csimfD {
+	border-color: #7289da !important;
+	background-color: #1e1d2d !important;
+	border-radius: 15px !important;
+	transform: scale(0.95) !important;
+	margin-top: .25vw !important;
+}
+
+
+/* Changes input text area */
+
+.kZaCVF {
+	border-color: #7289da !important;
+	background-color: #1e1d2d !important;
+	border-radius: 15px !important;
+	margin-top: .25vw !important;
+}
+
+
+/* Changes schedule, Users, Network, File Manager */
+
+.kqnFDg,
+.kHuGmn,
+.hIHBYg,
+.eGIYvK,
+.bmqKpQ,
+.fQUMLV {
+	border-radius: 15px !important;
+	background-color: #242338 !important;
+}
+
+
+/* Changes Network Icon */
+
+#app>div.sc-2l91w7-0.kDhnAT>div.sc-1p0gm8n-0.kaVYNu>section>div.x3r2dw-0.kbxq2g-0.evldyg.cZTZeB.fade-appear-done.fade-enter-done>div.sc-1xo9c6v-0.yy3pdt-3.gFWKai.hIHBYg>div.yy3pdt-4.irtdLf>div.yy3pdt-5.jCOUjK>svg {
+	color: #fafafa !important;
+}
+
+
+/* Changes console input */
+
+[type="text"],
+[type="email"],
+[type="url"],
+[type="password"],
+[type="number"],
+[type="date"],
+[type="datetime-local"],
+[type="month"],
+[type="search"],
+[type="tel"],
+[type="time"],
+[type="week"],
+[multiple],
+textarea,
+select {
+	background-color: #1e1d2d !important;
+	border-color: transparent !important;
+	color: #fafafa !important;
+	border-radius: 15px !important;
+}
+
+
+/* Changes check boxes */
+
+.uOUEk.uOUEk,
+.jVkAsT[type="checkbox"],
+.jVkAsT[type="radio"] {
+	border-radius: 15px !important;
+	background-color: #1e1d2d !important;
+	border-color: #7289da !important;
+}
+
+
+/* Changes Sub-User */
+
+.kqnFDg::-webkit-scrollbar {
+	background: #242338 !important;
+	border-radius: 15px !important;
+}
+
+.ekHIsr {
+	background-color: #242338 !important;
+	border-radius: 15px !important;
+}
+
+
+/* Fixes border radius when moving off of div */
+
+.icxFlO,
+.elUIig {
+	border-radius: 15px !important;
+}
+
+
+/* Changes selected admin page */
+
+.skin-blue .sidebar-menu>li.active>a {
+	box-shadow: #7289da 0px -0px inset !important;
+	border-left-color: #7289da !important;
+	background-color: #1e1d2d !important;
+}
+
+
+/* Changes background color of hovered admin page */
+
+.skin-blue .sidebar-menu>li:hover>a,
+.skin-blue .sidebar-menu>li.active>a,
+.skin-blue .sidebar-menu>li.menu-open>a,
+.skin-blue .main-header .navbar .sidebar-toggle:hover {
+	background-color: #1e1d2d !important;
+}
+
+
+/* Changes category name */
+
+.skin-blue .sidebar-menu>li.header {
+	color: #fafafa !important;
+	background-color: #1e1d2d !important;
+}
+
+
+/* Changes selected tab and background color */
+
+.nav-tabs-custom>.nav-tabs>li.active,
+.table>thead>tr>th,
+.table>tbody>tr>th,
+.table>tfoot>tr>th,
+.table>thead>tr>td,
+.table>tbody>tr>td,
+.table>tfoot>tr>td {
+	border-top-color: #7289da !important;
+	border-bottom-color: #7289da !important;
+}
+
+.nav-tabs-custom>.nav-tabs>li.active>a,
+.nav-tabs-custom>.nav-tabs>li.active:hover>a {
+	background-color: #1e1d2d !important;
+	border-color: transparent;
+}
+
+.nav-tabs-custom>.nav-tabs>li:hover {
+	border-top-color: #7289da !important;
+}
+
+
+/* Removes border */
+
+.box-footer,
+hr {
+	border-top: none !important;
+}
+
+.nav-tabs-custom>.nav-tabs>li.active,
+.table>thead>tr>th,
+.table>tbody>tr>th,
+.table>tfoot>tr>th,
+.table>thead>tr>td,
+.table>tbody>tr>td,
+.table>tfoot>tr>td {
+	background-color: #1e1d2d !important;
+}
+
+
+/* Removes port bubble */
+
+.cxwlaX {
+	background: #1e1d2d !important;
+}
+
+
+/* Fixes console scroll bar */
+
+.xterm .xterm-viewport::-webkit-scrollbar {
+	background: #1e1d2d !important;
+}
+
+
+/* Fixes node config */
+
+#configTokenBtn,
+body>div>div>section.content>div:nth-child(3)>div.col-sm-8>div>div:nth-child(2)>div>div.box-body.table-responsive>pre,
+body>div>div>section.content>div:nth-child(3)>div.col-sm-8>div>div.box-body>pre {
+	border-color: #413f66 !important;
+	background-color: #1e1d2d !important;
+	border-radius: 15px !important;
+}
+
+.box-body {
+	transform: scale(.98) !important;
+}
+
+.ifNwiE,
+.LdCMD,
+.fIhPZJ,
+.cFegvH,
+.box-body {
+	transform: scale(.98) !important;
+}
+
+.info-box,
+.info-box-icon {
+	border-radius: 15px !important;
+}
+
+
+/* Fixes file editor */
+
+.CodeMirror-scroll,
+.CodeMirror-sizer,
+.CodeMirror-gutter,
+.CodeMirror-gutters,
+.CodeMirror-linenumber {
+	border-color: #413f66 !important;
+	background-color: #1e1d2d !important;
+	color: #fafafa !important;
+}
+
+
+/* Fixes admin input areas and radius */
+
+input.form-control,
+.btn-default,
+input.form-control {
+	border-color: #413f66 !important;
+	background-color: #1e1d2d !important;
+	border-radius: 15px !important;
+}
+
+.ifNwiE,
+.LdCMD,
+.fIhPZJ,
+.cFegvH,
+.box-body {
+	background-color: #242338 !important;
+}
+
+.btn-default {
+	margin-right: .25vw !important;
+}
+
+.input-group .form-control {
+	margin-right: .25vw !important;
+}
+
+.bg-red,
+.bg-yellow,
+.bg-aqua,
+.bg-blue,
+.bg-light-blue,
+.bg-green,
+.bg-navy,
+.bg-teal,
+.bg-olive,
+.bg-lime,
+.bg-orange,
+.bg-fuchsia,
+.bg-purple,
+.bg-maroon,
+.bg-black,
+.bg-red-active,
+.bg-yellow-active,
+.bg-aqua-active,
+.bg-blue-active,
+.bg-light-blue-active,
+.bg-green-active,
+.bg-navy-active,
+.bg-teal-active,
+.bg-olive-active,
+.bg-lime-active,
+.bg-orange-active,
+.bg-fuchsia-active,
+.bg-purple-active,
+.bg-maroon-active,
+.bg-black-active,
+.callout.callout-danger,
+.callout.callout-warning,
+.callout.callout-info,
+.callout.callout-success,
+.alert-success,
+.alert-danger,
+.alert-error,
+.alert-warning,
+.alert-info,
+.label-danger,
+.label-info,
+.label-warning,
+.label-primary,
+.label-success,
+.modal-primary .modal-body,
+.modal-primary .modal-header,
+.modal-primary .modal-footer,
+.modal-warning .modal-body,
+.modal-warning .modal-header,
+.modal-warning .modal-footer,
+.modal-info .modal-body,
+.modal-info .modal-header,
+.modal-info .modal-footer,
+.modal-success .modal-body,
+.modal-success .modal-header,
+.modal-success .modal-footer,
+.modal-danger .modal-body,
+.modal-danger .modal-header,
+.modal-danger .modal-footer {
+	border-radius: 15px !important;
+}
+
+/* Fixes login page */
+
+.eWTBmo, .kZiVrb, .kZiVrb:hover, .kdZiuU, .fMOYf, .fMOYf:hover {
+	color: #fafafa !important;
+}
+
+.dVhqhq {
+	background-color: #242338 !important;
+	border-color: transparent !important;
+	box-shadow: none !important;
+}
+
+.fPcGHZ:not([type="checkbox"]):not([type="radio"]) {
+	border-color: #413f66 !important;
+	background-color: #1e1d2d !important;
+	border-radius: 15px !important;	
+}
+
+/* Fixes nest, eggs, and mounts */
+
+.modal-body, .modal-header, .modal-footer {
+	border-color: #1e1d2d !important;
+	background-color: #1e1d2d !important;
+}
+
+textarea.form-control {
+	border-color: #413f66 !important;
+	background-color: #1e1d2d !important;
+	border-radius: 15px !important;	
+}
