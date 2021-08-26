@@ -13,7 +13,7 @@ set -e
 ########################################################
 
 #### Variables ####
-SCRIPT_VERSION="v0.2"
+SCRIPT_VERSION="v0.3"
 DRACULA="https://pterothemes.gq/latest/Dracula/admin.css"
 SUPPORT_LINK="https://discord.gg/buDBbSGJmQ"
 
