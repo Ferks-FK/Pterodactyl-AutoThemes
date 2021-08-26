@@ -126,7 +126,7 @@ bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes
 
 while [ "$done" == false ]; do
   options=(
-    "Back to default theme (${red}Only 1.x${reset})"
+    "Back to default theme (Only 1.x)"
     "Install Dracula (Only 1.x)"
     "Install Enola (Only 1.x)"
     "Install Twilight (Only 1.x)"
