@@ -113,7 +113,7 @@ print_brake 25
 cd /var/www/pterodactyl
 mkdir -p temp
 cd temp
-curl -sSLo MinecraftMadness.tar.gz https://raw.githubusercontent.com/Alok-NetWork/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version0.7.19/MinecraftMadness/MinecraftMadness.tar.gz
+curl -sSLo MinecraftMadness.tar.gz https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version0.7.19/MinecraftMadness/MinecraftMadness.tar.gz
 tar -xzvf MinecraftMadness.tar.gz
 cd MinecraftMadness
 cp -rf -- * /var/www/pterodactyl
