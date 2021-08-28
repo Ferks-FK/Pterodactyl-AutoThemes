@@ -5,7 +5,9 @@ The script installs themes that are compatible with their respective panel versi
 
 ![Capturar](https://user-images.githubusercontent.com/69549678/131040086-17f65f98-d17d-4579-86c0-c465089525a5.PNG)
 
+# Support
 
+If you have any problems with the script, ask for support in our official group [Pterodacyl-AutoThemes Support](https://discord.gg/buDBbSGJmQ)
 
 # How to use
 Just run the following command as root user.
