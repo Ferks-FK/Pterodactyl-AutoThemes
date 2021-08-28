@@ -50,18 +50,19 @@ if [ -f "/var/www/pterodactyl/PanelBackup/PanelBackup.zip" ]; then
 cd /var/www/pterodactyl/PanelBackup
 unzip PanelBackup.zip
 rm -R PanelBackup.zip
-cp -rf app config database public resources routes storage /var/www/pterodactyl
+cp -rf app config database public resources routes storage .env /var/www/pterodactyl
 cd ..
 rm -R PanelBackup
 cd
 php /var/www/pterodactyl/artisan theme:refresh-cache 
 php /var/www/pterodactyl/artisan view:clear
 else
-echo
 print_brake 45
 echo -e "* ${red}There was no backup to restore, Aborting...${reset}"
 print_brake 45
+echo
 fi
+exit 1
 }
 
 
