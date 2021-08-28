@@ -95,15 +95,15 @@ esac
 #### Panel Backup ####
 backup() {
 echo
-print_brake 30
+print_brake 32
 echo -e "* ${GREEN}Performing security backup...${reset}"
-print_brake 30
+print_brake 32
 if [ -f "/var/www/pterodactyl/PanelBackup/PanelBackup.zip" ]; then
 echo
-print_brake 40
+print_brake 45
 echo -e "* ${GREEN}There is already a backup, skipping step...${reset}"
+print_brake 45
 echo
-print_brake 40
 else
 cd /var/www/pterodactyl
 mkdir -p PanelBackup
