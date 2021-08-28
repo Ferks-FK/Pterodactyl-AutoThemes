@@ -13,7 +13,7 @@ set -e
 ########################################################
 
 #### Variables ####
-SCRIPT_VERSION="v0.4"
+SCRIPT_VERSION="v0.5"
 TWILIGHT="https://pterothemes.gq/latest/Twilight/admin.css"
 SUPPORT_LINK="https://discord.gg/buDBbSGJmQ"
 
@@ -81,22 +81,43 @@ print_brake 30
 echo
 case "$OS" in
 debian | ubuntu)
-curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - && apt-get install -y nodejs
+curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - && apt-get install -y nodejs && apt-get install -y zip
 ;;
 
 centos)
-[ "$OS_VER_MAJOR" == "7" ] && curl -sL https://rpm.nodesource.com/setup_14.x | sudo -E bash - && sudo yum install -y nodejs yarn
-[ "$OS_VER_MAJOR" == "8" ] && curl -sL https://rpm.nodesource.com/setup_14.x | sudo -E bash - && sudo dnf install -y nodejs yarn
+[ "$OS_VER_MAJOR" == "7" ] && curl -sL https://rpm.nodesource.com/setup_14.x | sudo -E bash - && sudo yum install -y nodejs yarn && sudo yum install -y zip
+[ "$OS_VER_MAJOR" == "8" ] && curl -sL https://rpm.nodesource.com/setup_14.x | sudo -E bash - && sudo dnf install -y nodejs yarn && sudo dnf install -y zip
 ;;
 esac
 }
 
 
+#### Panel Backup ####
+backup() {
+echo
+print_brake 30
+echo -e "* ${GREEN}Performing security backup...${reset}"
+print_brake 30
+if [ -f "/var/www/pterodactyl/PanelBackup/PanelBackup.zip" ]; then
+echo
+print_brake 40
+echo -e "* ${GREEN}There is already a backup, skipping step...${reset}"
+echo
+print_brake 40
+else
+cd /var/www/pterodactyl
+mkdir -p PanelBackup
+zip -r PanelBackup.zip app config public resources routes storage database
+mv PanelBackup.zip PanelBackup
+fi
+}
+
+
 #### Donwload Files ####
+download_files() {
 print_brake 25
 echo -e "* ${GREEN}Downloading files...${reset}"
 print_brake 25
-download_files() {
 cd /var/www/pterodactyl/resources/scripts
 curl -o user.css https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/Twilight/user.css
 rm -R index.tsx
@@ -130,9 +151,10 @@ fi
 bye() {
 print_brake 50
 echo
-echo -e "* ${GREEN}The theme ${YELLOW}Twilight${GREEN} was successfully installed.${reset}"
-echo -e "* ${GREEN}Thank you for using this script.${reset}"
-echo -e "* ${GREEN}Support group: $(hyperlink "$SUPPORT_LINK")${reset}"
+echo -e "* ${GREEN}The theme ${YELLOW}Twilight${GREEN} was successfully installed."
+echo -e "* A security backup of your panel has been created."
+echo -e "* Thank you for using this script."
+echo -e "* Support group: ${YELLOW}$(hyperlink "$SUPPORT_LINK")${reset}"
 echo
 print_brake 50
 }
@@ -141,6 +163,7 @@ print_brake 50
 #### Exec Script ####
 check_distro
 dependencies
+backup
 download_files
 production
 bye

@@ -13,7 +13,7 @@ set -e
 ########################################################
 
 #### Variables ####
-SCRIPT_VERSION="v0.4"
+SCRIPT_VERSION="v0.5"
 SUPPORT_LINK="https://discord.gg/buDBbSGJmQ"
 
 
@@ -95,12 +95,21 @@ esac
 
 backup() {
 echo
-print_brake 31
+print_brake 30
 echo -e "* ${GREEN}Performing security backup...${reset}"
-print_brake 31
+print_brake 30
+if [ -f "/var/www/pterodactyl/PanelBackup/PanelBackup.zip" ]; then
+echo
+print_brake 40
+echo -e "* ${GREEN}There is already a backup, skipping step...${reset}"
+echo
+print_brake 40
+else
 cd /var/www/pterodactyl
-zip -r PteroBackup-$(date +"%Y-%m-%d").zip public resources
-cd
+mkdir -p PanelBackup
+zip -r PanelBackup.zip app config public resources routes storage database
+mv PanelBackup.zip PanelBackup
+fi
 }
 
 
@@ -126,9 +135,10 @@ rm -rf temp
 bye() {
 print_brake 50
 echo
-echo -e "* ${GREEN}The theme ${YELLOW}Minecraft Madness${GREEN} was successfully installed.${reset}"
-echo -e "* ${GREEN}Thank you for using this script.${reset}"
-echo -e "* ${GREEN}Support group: $(hyperlink "$SUPPORT_LINK")${reset}"
+echo -e "* ${GREEN}The theme ${YELLOW}Minecraft Madness${GREEN} was successfully installed."
+echo -e "* A security backup of your panel has been created."
+echo -e "* Thank you for using this script."
+echo -e "* Support group: ${YELLOW}$(hyperlink "$SUPPORT_LINK")${reset}"
 echo
 print_brake 50
 }
