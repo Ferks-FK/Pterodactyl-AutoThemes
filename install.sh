@@ -79,8 +79,8 @@ echo "* This script is not associated with the official Pterodactyl Project."
 print_brake 70
 echo
 
-Default() {
-bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/Default/build.sh)
+Backup() {
+bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/backup.sh)
 }
 
 Dracula() {
@@ -130,7 +130,7 @@ bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes
 
 while [ "$done" == false ]; do
   options=(
-    "Back to default theme (Only 1.x)"
+    "Restore Panel Backup (Only if you have already installed a theme using this script.)"
     "Install Dracula (Only 1.x)"
     "Install Enola (Only 1.x)"
     "Install Twilight (Only 1.x)"
@@ -148,7 +148,7 @@ while [ "$done" == false ]; do
   )
   
   actions=(
-    "Default"
+    "Backup"
     "Dracula"
     "Enola"
     "Twilight"
