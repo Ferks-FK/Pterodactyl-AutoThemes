@@ -3,7 +3,9 @@ This is a theme installation script for the [Pterodactyl Panel](https://github.c
 
 The script installs themes that are compatible with their respective panel versions.
 
-![Capturar](https://user-images.githubusercontent.com/69549678/131040086-17f65f98-d17d-4579-86c0-c465089525a5.PNG)
+![Capturar](https://user-images.githubusercontent.com/69549678/131229247-8b9483af-55ce-44b4-8636-2cbe822f1687.PNG)
+
+
 
 # Support
 
@@ -98,6 +100,22 @@ bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes
 
 ### Admin:
 ![2](https://user-images.githubusercontent.com/69549678/131041623-62471796-f9fa-41bf-94c7-2a1d2a9d90b4.PNG)
+
+## Argon:
+### User:
+![1](https://user-images.githubusercontent.com/69549678/131229215-b55b583b-30c3-4b3a-848c-473ffd198db3.PNG)
+
+### Admin:
+![2](https://user-images.githubusercontent.com/69549678/131229222-a905285a-a9b6-4ecd-a49b-9f6ee35cd6a2.PNG)
+
+# Development
+
+This script was created and is being maintained by [Ferks - FK](https://github.com/Ferks-FK).
+
+# Extra informations
+
+If you have a theme, and would like to add it to the script, feel free to suggest it in the support group.
+
 
 
 
