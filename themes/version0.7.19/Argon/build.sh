@@ -131,6 +131,8 @@ cd
 cd /var/www/pterodactyl
 rm -rf temp
 sed -i -e "s@APP_THEME=pterodactyl@${ARGON}@g" .env
+php /var/www/pterodactyl/artisan theme:refresh-cache
+php /var/www/pterodactyl/artisan view:clear
 }
 
 
