@@ -1,0 +1,496 @@
+:root {
+	--main-bg-colour: #282a36 !important;
+	--secondary-bg-colour: #203a43 !important;
+	--secondary-bg-colour-alt: #192e35 !important;
+	--accent-colour: #3f778a !important;
+	--text-colour: #fafafa !important;
+	--border-radius: 15px !important;
+	--accent-light: #d4b5ff !important;
+}
+
+/* Changes Background */
+
+body, .content-wrapper {
+	background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIj48ZGVmcz48cGF0dGVybiBpZD0icGF0dGVybiIgd2lkdGg9IjM0LjY0IiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgNjkuMjgyMDMyMzAyNzU1MSw4MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgcGF0dGVyblRyYW5zZm9ybT0icm90YXRlKDEzNSkgIj48cmVjdCBpZD0icGF0dGVybi1iYWNrZ3JvdW5kIiB3aWR0aD0iNDAwJSIgaGVpZ2h0PSI0MDAlIiBmaWxsPSJyZ2JhKDE1LCAzNCwgNDEsMSkiPjwvcmVjdD4gPHBhdGggZmlsbD0icmdiYSg2MywgMTE5LCAxMzgsMSkiIGQ9Ik01My42OSA1MSBMNTEuOTYgNTIgTDUwLjIzIDUxIEw1MC4yMyA0OSBMNTEuOTYgNDggTDUzLjY5IDQ5IHoiIHN0cm9rZS1saW5lam9pbj0ibWl0ZXIiPjwvcGF0aD48cGF0aCBmaWxsPSJyZ2JhKDYzLCAxMTksIDEzOCwxKSIgZD0iTTM2LjM3IDYxIEwzNC42NCA2MiBMMzIuOTEgNjEgTDMyLjkxIDU5IEwzNC42NCA1OCBMMzYuMzcgNTkgeiIgc3Ryb2tlLWxpbmVqb2luPSJtaXRlciI+PC9wYXRoPjxwYXRoIGZpbGw9InJnYmEoNjMsIDExOSwgMTM4LDEpIiBkPSJNMTkuMDUgNTEgTDE3LjMyIDUyIEwxNS41OSA1MSBMMTUuNTkgNDkgTDE3LjMyIDQ4IEwxOS4wNSA0OSB6IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIj48L3BhdGg+PHBhdGggZmlsbD0icmdiYSg2MywgMTE5LCAxMzgsMSkiIGQ9Ik0xOS4wNSAzMSBMMTcuMzIgMzIgTDE1LjU5IDMxIEwxNS41OSAyOSBMMTcuMzIgMjggTDE5LjA1IDI5IHoiIHN0cm9rZS1saW5lam9pbj0ibWl0ZXIiPjwvcGF0aD48cGF0aCBmaWxsPSJyZ2JhKDYzLCAxMTksIDEzOCwxKSIgZD0iTTM2LjM3IDIxIEwzNC42NCAyMiBMMzIuOTEgMjEgTDMyLjkxIDE5IEwzNC42NCAxOCBMMzYuMzcgMTkgeiIgc3Ryb2tlLWxpbmVqb2luPSJtaXRlciI+PC9wYXRoPjxwYXRoIGZpbGw9InJnYmEoNjMsIDExOSwgMTM4LDEpIiBkPSJNNTMuNjkgMzEgTDUxLjk2IDMyIEw1MC4yMyAzMSBMNTAuMjMgMjkgTDUxLjk2IDI4IEw1My42OSAyOSB6IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIj48L3BhdGg+PHBhdGggZmlsbD0icmdiYSgyNTAsIDI1MCwgMjUwLDEpIiBkPSJNMzYuMzcgNDEgTDM0LjY0IDQyIEwzMi45MSA0MSBMMzIuOTEgMzkgTDM0LjY0IDM4IEwzNi4zNyAzOSB6IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIj48L3BhdGg+PC9wYXR0ZXJuPiAgPC9kZWZzPiA8cmVjdCBmaWxsPSJ1cmwoI3BhdHRlcm4pIiBoZWlnaHQ9IjEwMCUiIHdpZHRoPSIxMDAlIj48L3JlY3Q+PC9zdmc+") !important;
+}
+
+
+/* Changes Header Color */
+
+.ebtnLL,
+.cWFcHc,
+.iTxXDX,
+.JZicT,
+.skin-blue .wrapper,
+.skin-blue .main-sidebar,
+.skin-blue .left-side,
+.skin-blue .main-header .navbar,
+.skin-blue .main-header .logo,
+.main-footer {
+	background-color: var(--secondary-bg-colour) !important;
+	border-color: transparent !important;
+	box-shadow: none !important;
+}
+
+
+/* Changes selected tab color */
+
+.fmPgAW>a:active,
+.fmPgAW>.navigation-link:active,
+.fmPgAW>a:hover,
+.fmPgAW>.navigation-link:hover,
+.fmPgAW>a.active,
+.fmPgAW>.navigation-link.active,
+.cWFcHc>div>a:active,
+.cWFcHc>div>div:active,
+.cWFcHc>div>a.active,
+.cWFcHc>div>div.active,
+.jMDToC>a:active,
+.jMDToC>.navigation-link:active,
+.jMDToC>a:hover,
+.jMDToC>.navigation-link:hover,
+.jMDToC>a.active,
+.jMDToC>.navigation-link.active,
+.JZicT>div>a:active,
+.JZicT>div>div:active,
+.JZicT>div>a.active,
+.JZicT>div>div.active {
+	box-shadow: var(--accent-colour) 0px -2px inset !important;
+	background-color: var(--secondary-bg-colour) !important;
+}
+
+
+/* Changes Text Color */
+
+.fNmetC,
+.hcJQtJ,
+.ToRTP,
+.dPhkRJ,
+.cKOMAz,
+.jSyjnD,
+.jywpgX,
+.eFKDEh,
+.dUzAFF,
+.cbFifO,
+.farUaV,
+.dMZZHB,
+.lgYuLu,
+.gSUxYg,
+.cdBzyv,
+.gxlLzB,
+.jexamK,
+.eWxPIu,
+.eWxPIu:hover,
+.jXGwrM,
+.mIIYh,
+.iambCQ,
+.iZqkRd,
+.chAlWS,
+.iTwxpv,
+.skin-blue .main-header .logo {
+	color: var(--text-colour) !important;
+}
+
+
+/* Changes disabled switch */
+
+.gdhLjd>label,
+.cDmYBr>label {
+	background-color: var(--secondary-bg-colour) !important;
+	border-color: var(--secondary-bg-colour) !important;
+}
+
+
+/* Changes enabled switch */
+
+.gdhLjd>input[type="checkbox"]:checked+label,
+.cDmYBr>input[type="checkbox"]:checked+label {
+	background-color: var(--accent-colour) !important;
+	border-color: var(--accent-colour) !important;
+}
+
+
+/* Changes server list color */
+
+.liBonM,
+.bOIdGn,
+.jkiDvQ,
+.iYhzbi,
+.jqQFoq,
+.bEKRkc,
+.dRhlIo {
+	background-color: var(--secondary-bg-colour) !important;
+	border-radius: var(--border-radius) !important;
+	border-color: var(--secondary-bg-colour) !important;
+}
+
+
+/* Changes border when hover */
+
+.liBonM:hover,
+.kHuGmn:hover,
+.dRhlIo:hover,
+.bEKRkc:hover {
+	border-color: var(--accent-colour) !important;
+}
+
+
+/* Changes status bar position and size */
+
+.jkiDvQ .status-bar,
+.bvinzM .status-bar,
+.iYhzbi .status-bar,
+.liBonM .status-bar,
+.jqQFoq .status-bar,
+.bEKRkc .status-bar,
+.dRhlIo .status-bar {
+	height: 7vw !important;
+	right: -.25vw !important;
+}
+
+
+/* Changes Installing Status, and other bubble text */
+
+.hNrKxe,
+.dMZZHB,
+.dHRxAp,
+.epSLdr,
+.bsrsDD,
+.ffSVrP,
+.fZqvbJ,
+.fLfaAY,
+.bsSkeI,
+.jIIIrT,
+.EwfIk,
+.izAmwE,
+code,
+.select2-container--default .select2-selection--multiple .select2-selection__choice,
+.select2-search--inline .select2-search__field:focus,
+.select2-container--default .select2-search--inline .select2-search__field {
+	border-radius: var(--border-radius);
+	background-color: var(--accent-colour) !important;
+	border-color: var(--accent-colour) !important;
+	color: var(--text-colour) !important;
+}
+
+
+/* Changes server icons */
+
+.kHuGmn .icon,
+.jkiDvQ .icon,
+.bvinzM .icon,
+.iYhzbi .icon,
+.liBonM .icon,
+.jqQFoq .icon,
+.dRhlIo .icon {
+	background-color: var(--accent-colour) !important;
+}
+
+
+/* Changes account settings area */
+
+.hfBvRz,
+.fenved {
+	border-radius: var(--border-radius);
+	background-color: var(--secondary-bg-colour) !important;
+	border-color: var(--accent-colour) !important;
+}
+
+
+/* Changes input areas */
+
+.eDhiE:not([type="checkbox"]):not([type="radio"]),
+.lepTyw:not([type="checkbox"]):not([type="radio"]),
+.eDhiE[type="checkbox"],
+.eDhiE[type="radio"],
+.hDlyZJ:not(.disabled):hover,
+.farUaV,
+.iZMsvi,
+.iYSUfg,
+.cKwXAB,
+.ixeRNi:hover,
+.jVkAsT:not([type="checkbox"]):not([type="radio"]),
+.kmvYjP:not([type="checkbox"]):not([type="radio"]),
+.hsUiOF,
+.jrraLb,
+.icxFlO:hover,
+.gYNKkb,
+.elUIig:hover,
+.ekbHAG,
+.btn-primary,
+.btn-warning,
+.btn-success,
+.alert-danger,
+pre,
+.input-group .input-group-addon,
+.select2-container--default .select2-selection--single,
+.select2-container--default .select2-selection--multiple {
+	border-color: var(--accent-colour) !important;
+	/* background-color: #0f2229 !important; */
+	background-color: var(--secondary-bg-colour-alt) !important;
+	border-radius: var(--border-radius) !important;
+}
+
+
+/* Changes header-upper */
+
+.kwjWaB,
+.grusjm,
+.cswOgL,
+.cnbtLx,
+.bPeJFv,
+.bWXUsX,
+.nav-tabs-custom.nav-tabs-floating>.nav-tabs,
+.box-header.with-border,
+.bg-gray {
+	border-color: var(--accent-colour) !important;
+	background-color: var(--secondary-bg-colour) !important;
+	border-radius: var(--border-radius) !important;
+	margin-bottom: 1vw !important;
+}
+
+
+/* Changes header-lower,  */
+
+.ifNwiE,
+.LdCMD,
+.fIhPZJ,
+.cFegvH,
+.box-body {
+	border-color: transparent !important;
+	/* background-color: #192e35 var(--secondary-bg-colour-alt) !important; */
+	background-color: var(--secondary-bg-colour-alt) !important;
+	border-radius: var(--border-radius) !important;
+}
+
+
+/* Hides background of radial areas */
+
+.RkKIC,
+.cRDvbO,
+.dmLxWB,
+.gLxIAb,
+.gHwjbw,
+.WUPIv,
+.dQCdoR,
+.vtEGy,
+.kGXByO,
+.nav-tabs-custom,
+.box,
+.box-footer,
+.small-box>.small-box-footer {
+	background-color: transparent !important;
+	border-top: none !important;
+	box-shadow: none !important;
+}
+
+
+/* Changes console */
+
+.LbmBV,
+.hahdAC {
+	border-radius: var(--border-radius) !important;
+	background-color: var(--secondary-bg-colour-alt) !important;
+	margin-bottom: .75vw !important;
+}
+
+
+/* Changes console color */
+
+.xterm .xterm-screen,
+.xterm .xterm-viewport {
+	background-color: var(--secondary-bg-colour-alt) !important;
+}
+
+
+/* Changes scroll bar */
+
+::-webkit-scrollbar-thumb:hover {
+	-webkit-box-shadow: inset 0 0 0 1px var(--accent-colour), inset 0 0 0 4px var(--accent-colour) !important;
+}
+
+::-webkit-scrollbar-thumb {
+	border-right-width: 4px !important;
+	border-left-width: 4px !important;
+	-webkit-border-radius: 9px 4px !important;
+	-webkit-box-shadow: inset 0 0 0 1px var(--accent-colour), inset 0 0 0 4px var(--accent-colour) !important;
+}
+
+::-webkit-scrollbar {
+	background: var(--secondary-bg-colour-alt) !important;
+	border-radius: 15px !important;
+}
+
+
+/* Changes console input */
+
+.JQChZ,
+.csimfD {
+	border-color: var(--accent-colour) !important;
+	background-color: var(--secondary-bg-colour) !important;
+	border-radius: var(--border-radius) !important;
+}
+
+.jSyjnD {
+	border-color: var(--accent-colour) !important;
+}
+
+
+/* Changes input text area */
+
+.kZaCVF {
+	border-color: var(--accent-colour) !important;
+	background-color: var(--secondary-bg-colour) !important;
+	border-radius: var(--border-radius) !important;
+}
+
+
+/* Changes schedule, Users, Network, File Manager */
+
+.kqnFDg,
+.kHuGmn,
+.hIHBYg,
+.eGIYvK,
+.bmqKpQ,
+.fQUMLV {
+	border-radius: 15px !important;
+	overflow: hidden !important;
+	background-color: #203A43 !important;
+}
+
+
+/* Changes Network Icon */
+
+#app>div.sc-2l91w7-0.kDhnAT>div.sc-1p0gm8n-0.kaVYNu>section>div.x3r2dw-0.kbxq2g-0.evldyg.cZTZeB.fade-appear-done.fade-enter-done>div.sc-1xo9c6v-0.yy3pdt-3.gFWKai.hIHBYg>div.yy3pdt-4.irtdLf>div.yy3pdt-5.jCOUjK>svg {
+	color: #fafafa !important;
+}
+
+
+/* Changes console input */
+
+[type="text"],
+[type="email"],
+[type="url"],
+[type="password"],
+[type="number"],
+[type="date"],
+[type="datetime-local"],
+[type="month"],
+[type="search"],
+[type="tel"],
+[type="time"],
+[type="week"],
+[multiple],
+textarea,
+select {
+	background-color: #203A43 !important;
+	border-color: transparent !important;
+	color: #fafafa !important;
+	border-radius: 15px !important;
+}
+
+
+/* Changes check boxes */
+
+.uOUEk.uOUEk,
+.jVkAsT[type="checkbox"],
+.jVkAsT[type="radio"] {
+	border-radius: 15px !important;
+	background-color: #192E35 !important;
+	border-color: #3F778A !important;
+}
+
+
+/* Changes Sub-User */
+
+.ekHIsr::-webkit-scrollbar {
+	background: #203A43 !important;
+	border-radius: 15px !important;
+}
+
+.ekHIsr {
+	background-color: #203A43 !important;
+	border-radius: 15px !important;
+}
+
+
+/* Fixes border radius when moving off of div */
+
+.icxFlO,
+.elUIig {
+	border-radius: 15px !important;
+}
+
+
+/* Changes selected admin page */
+
+.skin-blue .sidebar-menu>li.active>a {
+	box-shadow: #3F778A 0px -2px inset !important;
+	border-left-color: #3F778A !important;
+	background-color: #192E35 !important;
+}
+
+
+/* Changes background color of hovered admin page */
+
+.skin-blue .sidebar-menu>li:hover>a,
+.skin-blue .sidebar-menu>li.active>a,
+.skin-blue .sidebar-menu>li.menu-open>a,
+.skin-blue .main-header .navbar .sidebar-toggle:hover {
+	background-color: #192E35 !important;
+}
+
+
+/* Changes category name */
+
+.skin-blue .sidebar-menu>li.header {
+	color: #fafafa !important;
+	background-color: #192E35 !important;
+}
+
+
+/* Changes selected tab and background color */
+
+.nav-tabs-custom>.nav-tabs>li.active,
+.table>thead>tr>th,
+.table>tbody>tr>th,
+.table>tfoot>tr>th,
+.table>thead>tr>td,
+.table>tbody>tr>td,
+.table>tfoot>tr>td {
+	border-top-color: #3F778A !important;
+	border-bottom-color: #3F778A !important;
+}
+
+.nav-tabs-custom>.nav-tabs>li.active>a,
+.nav-tabs-custom>.nav-tabs>li.active:hover>a {
+	background-color: #192E35 !important;
+	border-color: transparent;
+}
+
+.nav-tabs-custom>.nav-tabs>li:hover {
+	border-top-color: #3F778A !important;
+}
+
+/* Removes border */
+
+.box-footer,
+hr {
+	border-top: none !important;
+}
+
+.nav-tabs-custom>.nav-tabs>li.active,
+.table>thead>tr>th,
+.table>tbody>tr>th,
+.table>tfoot>tr>th,
+.table>thead>tr>td,
+.table>tbody>tr>td,
+.table>tfoot>tr>td {
+	background-color: #203A43 !important;
+}
+
+/* Removes port bubble */
+
+#app > div.App___StyledDiv-sc-2l91w7-0.fnfeQw > div.Fade__Container-sc-1p0gm8n-0.hcgQjy > section > div.ContentContainer-x3r2dw-0.PageContentBlock___StyledContentContainer-kbxq2g-0.hiUzTH.ckLneN.ServerConsole___StyledServerContentBlock-sc-1j2y518-0.hlbvqz.fade-appear-done.fade-enter-done > div.ServerConsole___StyledDiv-sc-1j2y518-1.dfrjYE > div.TitledGreyBox___StyledDiv-gvsoy-0.kGXByO.ServerDetailsBlock___StyledTitledGreyBox-sc-168cvuh-0.dQCdoR > div.TitledGreyBox___StyledDiv3-gvsoy-4.fIhPZJ > p.ServerDetailsBlock___StyledP2-sc-168cvuh-3.wOPxU.CopyOnClick___StyledCopyToClipboard-sc-7pjzdv-1.knscqo > code {
+	background: #192E35 !important;
+}

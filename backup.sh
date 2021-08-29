@@ -13,7 +13,7 @@ set -e
 ########################################################
 
 #### Variables ####
-SCRIPT_VERSION="v0.6"
+SCRIPT_VERSION="v0.7"
 SUPPORT_LINK="https://discord.gg/buDBbSGJmQ"
 
 
@@ -36,6 +36,24 @@ GREEN="\e[0;92m"
 YELLOW="\033[1;33m"
 reset="\e[0m"
 red='\033[0;31m'
+
+
+#### Only Theme Argon ####
+
+removeargon() {
+if [ -d "/var/www/pterodactyl/public/themes/argon" ]; then
+cd /var/www/pterodactyl/public/themes
+rm -R argon
+else
+echo
+fi
+if [ -d "/var/www/pterodactyl/resources/themes/argon" ]; then
+cd /var/www/pterodactyl/resources/themes
+rm -R argon
+else
+echo
+fi
+}
 
 
 #### Restore Backup ####
@@ -78,5 +96,6 @@ print_brake 50
 
 
 #### Exec Script ####
+removeargon
 restore
 bye
