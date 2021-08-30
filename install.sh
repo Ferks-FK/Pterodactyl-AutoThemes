@@ -124,7 +124,7 @@ bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes
 }
 
 Argon() {
-bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version0.7.19/Argon/build.sh)
+bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/Argon/build.sh)
 }
 
 
