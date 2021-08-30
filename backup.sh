@@ -76,8 +76,8 @@ print_brake 45
 echo -e "* ${red}There was no backup to restore, Aborting...${reset}"
 print_brake 45
 echo
-fi
 exit 1
+fi
 }
 
 
