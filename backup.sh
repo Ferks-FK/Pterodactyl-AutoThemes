@@ -71,9 +71,6 @@ rm -R PanelBackup.zip
 cp -rf app config database public resources routes storage .env /var/www/pterodactyl
 cd ..
 rm -R PanelBackup
-cd
-php /var/www/pterodactyl/artisan theme:refresh-cache 
-php /var/www/pterodactyl/artisan view:clear
 else
 print_brake 45
 echo -e "* ${red}There was no backup to restore, Aborting...${reset}"
