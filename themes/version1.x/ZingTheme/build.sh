@@ -117,18 +117,16 @@ download_files() {
 print_brake 25
 echo -e "* ${GREEN}Downloading files...${reset}"
 print_brake 25
-cd /var/www/pterodactyl/resources/scripts
-curl -o user.css https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/Twilight/user.css
-rm -R index.tsx
-curl -o index.tsx https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/Twilight/index.tsx
+cd /var/www/pterodactyl
+mkdir -p temp
+cd temp
+curl -sSLo ZingTheme.tar.gz https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/ZingTheme/ZingTheme.tar.gz
+tar -xzvf ZingTheme.tar.gz
+cd ZingTheme
+cp -rf -- * /var/www/pterodactyl
 cd
-cd /var/www/pterodactyl/resources/views/layouts
-rm -R admin.blade.php
-curl -o admin.blade.php https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/Twilight/admin.blade.php
-cd
-cd /var/www/pterodactyl/public/themes/pterodactyl/css
-curl -o admin.css https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/Twilight/admin.css
-cd
+cd /var/www/pterodactyl
+rm -rf temp
 }
 
 #### Panel Production ####
@@ -153,7 +151,7 @@ fi
 bye() {
 print_brake 50
 echo
-echo -e "* ${GREEN}The theme ${YELLOW}Twilight${GREEN} was successfully installed."
+echo -e "* ${GREEN}The theme ${YELLOW}Zing Theme${GREEN} was successfully installed."
 echo -e "* A security backup of your panel has been created."
 echo -e "* Thank you for using this script."
 echo -e "* Support group: ${YELLOW}$(hyperlink "$SUPPORT_LINK")${reset}"
@@ -169,3 +167,4 @@ backup
 download_files
 production
 bye
+

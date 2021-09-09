@@ -12,7 +12,7 @@ set -e
 #
 ########################################################
 
-SCRIPT_VERSION="v0.7"
+SCRIPT_VERSION="v0.8"
 
 
 print_brake() {
@@ -95,6 +95,10 @@ Twilight() {
 bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/Twilight/build.sh)
 }
 
+ZingTheme() {
+bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/ZingTheme/build.sh)
+}
+
 BlackEndSpace() {
 bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version0.7.19/BlackEndSpace/build.sh)
 }
@@ -134,6 +138,7 @@ while [ "$done" == false ]; do
     "Install Dracula (Only 1.x)"
     "Install Enola (Only 1.x)"
     "Install Twilight (Only 1.x)"
+    "Install Zing Theme (Only 1.x)"
     "Install Black End Space (Only 0.7.19)"
     "Install Blue Brick (Only 0.7.19)"
     "Install Lime Stitch (Only 0.7.19)"
@@ -152,6 +157,7 @@ while [ "$done" == false ]; do
     "Dracula"
     "Enola"
     "Twilight"
+    "ZingTheme"
     "BlackEndSpace"
     "BlueBrick"
     "LimeStitch"
