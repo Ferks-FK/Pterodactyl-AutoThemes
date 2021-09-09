@@ -112,7 +112,7 @@ exit 1
 fi
 if [ -f "/var/www/pterodactyl/PanelBackup/tailwind.config" ]; then
 cd /var/www/pterodactyl/PanelBackup
-cp -rf tailwind.config /var/www/pterodactyl
+cp -rf tailwind.config.js /var/www/pterodactyl
 cd ..
 rm -rf PanelBackup
 else
