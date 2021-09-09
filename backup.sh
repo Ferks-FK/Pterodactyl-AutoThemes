@@ -13,7 +13,6 @@ set -e
 ########################################################
 
 #### Variables ####
-SCRIPT_VERSION="v0.8"
 SUPPORT_LINK="https://discord.gg/buDBbSGJmQ"
 
 
@@ -38,9 +37,43 @@ reset="\e[0m"
 red='\033[0;31m'
 
 
-#### Only Theme Argon ####
+#### Removal of theme files ####
 
-removeargon() {
+DET() {
+if [ -f "/var/www/pterodactyl/resources/scripts/user.css" ]; then
+cd /var/www/pterodactyl/resources/scripts
+rm -r user.css
+cd
+else
+echo
+fi
+if [ -f "/var/www/pterodactyl/public/themes/pterodactyl/css/admin.css" ]; then
+cd /var/www/pterodactyl/public/themes/pterodactyl/css
+rm -r admin.css
+cd
+else
+echo
+fi
+}
+
+zing() {
+if [ -f "/var/www/pterodactyl/resources/scripts/components/SidePanel.tsx" ]; then
+cd /var/www/pterodactyl/resources/scripts/components
+rm -r SidePanel.tsx
+cd
+else
+echo
+fi
+if [ -f "/var/www/pterodactyl/resources/scripts/components/server/files/FileViewer.tsx" ]; then
+cd /var/www/pterodactyl/resources/scripts/components/server/files
+rm -r FileViewer.tsx
+cd
+else
+echo
+fi
+}
+
+argon() {
 if [ -d "/var/www/pterodactyl/public/themes/argon" ]; then
 cd /var/www/pterodactyl/public/themes
 rm -R argon
@@ -69,14 +102,21 @@ cd /var/www/pterodactyl/PanelBackup
 unzip PanelBackup.zip
 rm -R PanelBackup.zip
 cp -rf app config database public resources routes storage .env /var/www/pterodactyl
-cd ..
-rm -R PanelBackup
+cd
 else
 print_brake 45
 echo -e "* ${red}There was no backup to restore, Aborting...${reset}"
 print_brake 45
 echo
 exit 1
+fi
+if [ -f "/var/www/pterodactyl/PanelBackup/tailwind.config" ]; then
+cd /var/www/pterodactyl/PanelBackup
+cp -rf tailwind.config /var/www/pterodactyl
+cd ..
+rm -rf PanelBackup
+else
+echo
 fi
 }
 
@@ -93,6 +133,8 @@ print_brake 50
 
 
 #### Exec Script ####
-removeargon
+DET
+zing
+argon
 restore
 bye

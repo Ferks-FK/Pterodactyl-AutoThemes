@@ -13,7 +13,7 @@ set -e
 ########################################################
 
 #### Variables ####
-SCRIPT_VERSION="v0.8"
+SCRIPT_VERSION="v0.8.1"
 SUPPORT_LINK="https://discord.gg/buDBbSGJmQ"
 
 

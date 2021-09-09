@@ -13,7 +13,7 @@ set -e
 ########################################################
 
 #### Variables ####
-SCRIPT_VERSION="v0.8"
+SCRIPT_VERSION="v0.8.1"
 SUPPORT_LINK="https://discord.gg/buDBbSGJmQ"
 
 
@@ -106,7 +106,7 @@ echo
 else
 cd /var/www/pterodactyl
 mkdir -p PanelBackup
-zip -r PanelBackup.zip app config public resources routes storage database .env
+zip -r PanelBackup.zip app config public resources routes storage database .env tailwind.config
 mv PanelBackup.zip PanelBackup
 fi
 }
