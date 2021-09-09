@@ -3,7 +3,8 @@ This is a theme installation script for the [Pterodactyl Panel](https://github.c
 
 The script installs themes that are compatible with their respective panel versions.
 
-![Capturar](https://user-images.githubusercontent.com/69549678/131229247-8b9483af-55ce-44b4-8636-2cbe822f1687.PNG)
+![1](https://user-images.githubusercontent.com/69549678/132611532-2bbfaffd-6349-4458-b23c-bdafb4d97ce0.JPG)
+
 
 
 
@@ -48,6 +49,14 @@ bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes
 
 ### Admin:
 ![admin3](https://user-images.githubusercontent.com/69549678/130691022-f58fb982-4122-460a-a73b-155a80a57c3d.png)
+
+## ZingTheme
+*This theme was created by* [Fredthedoggy](https://github.com/Fredthedoggy).
+
+*This script is authorized to use the author's theme.*
+### Login/User:
+![1](https://user-images.githubusercontent.com/69549678/132610850-e3d41f09-dbaf-4791-a4a9-8e494239b9b4.JPG)
+![2](https://user-images.githubusercontent.com/69549678/132610853-507acc49-3bec-4ff7-888a-ca286e4387f1.JPG)
 
 
 # Themes for the 0.7.19 panel
