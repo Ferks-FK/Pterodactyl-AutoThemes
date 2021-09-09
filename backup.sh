@@ -110,7 +110,7 @@ print_brake 45
 echo
 exit 1
 fi
-if [ -f "/var/www/pterodactyl/PanelBackup/tailwind.config" ]; then
+if [ -f "/var/www/pterodactyl/PanelBackup/tailwind.config.js" ]; then
 cd /var/www/pterodactyl/PanelBackup
 cp -rf tailwind.config.js /var/www/pterodactyl
 cd ..
