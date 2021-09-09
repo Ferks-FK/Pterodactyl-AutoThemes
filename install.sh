@@ -134,7 +134,7 @@ bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes
 
 while [ "$done" == false ]; do
   options=(
-    "Restore Panel Backup (Only if you have already installed a theme using this script.)"
+    "Restore Panel Backup (Only if you have an installation problem.)"
     "Install Dracula (Only 1.x)"
     "Install Enola (Only 1.x)"
     "Install Twilight (Only 1.x)"
