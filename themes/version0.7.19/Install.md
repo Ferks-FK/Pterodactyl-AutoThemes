@@ -2,7 +2,6 @@
 
 
 1 - Start by downloading a copy of the desired theme installer with the following command:
-bash
 ```
 curl -o https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/v0.8.2/themes/version0.7.19/YOUR-THEME/build.sh
 ```
