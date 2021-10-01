@@ -12,7 +12,7 @@ set -e
 #
 ########################################################
 
-SCRIPT_VERSION="v0.8.1"
+SCRIPT_VERSION="v0.8.2"
 
 
 print_brake() {
@@ -99,38 +99,6 @@ ZingTheme() {
 bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/ZingTheme/build.sh)
 }
 
-BlackEndSpace() {
-bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version0.7.19/BlackEndSpace/build.sh)
-}
-
-BlueBrick() {
-bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version0.7.19/BlueBrick/build.sh)
-}
-
-LimeStitch() {
-bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version0.7.19/LimeStitch/build.sh)
-}
-
-MinecraftMadness() {
-bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version0.7.19/MinecraftMadness/build.sh)
-}
-
-NothingButGraphite() {
-bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version0.7.19/NothingButGraphite/build.sh)
-}
-
-RedApe() {
-bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version0.7.19/RedApe/build.sh)
-}
-
-TangoTwist() {
-bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version0.7.19/TangoTwist/build.sh)
-}
-
-Argon() {
-bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version0.7.19/Argon/build.sh)
-}
-
 
 while [ "$done" == false ]; do
   options=(
@@ -139,14 +107,6 @@ while [ "$done" == false ]; do
     "Install Enola (Only 1.x)"
     "Install Twilight (Only 1.x)"
     "Install Zing Theme (Only 1.x)"
-    "Install Black End Space (Only 0.7.19)"
-    "Install Blue Brick (Only 0.7.19)"
-    "Install Lime Stitch (Only 0.7.19)"
-    "Install Minecraft Madness (Only 0.7.19)"
-    "Install Nothing But Graphite (Only 0.7.19)"
-    "Install Red Ape (Only 0.7.19)"
-    "Install Tango Twist (Only 0.7.19)"
-    "Install Argon (Only 0.7.19)"
     
     
     "Cancel Installation"
@@ -158,14 +118,6 @@ while [ "$done" == false ]; do
     "Enola"
     "Twilight"
     "ZingTheme"
-    "BlackEndSpace"
-    "BlueBrick"
-    "LimeStitch"
-    "MinecraftMadness"
-    "NothingButGraphite"
-    "RedApe"
-    "TangoTwist"
-    "Argon"
     
     
     "cancel"

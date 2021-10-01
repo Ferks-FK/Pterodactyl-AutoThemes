@@ -13,7 +13,7 @@ set -e
 ########################################################
 
 #### Variables ####
-SCRIPT_VERSION="v0.8.1"
+SCRIPT_VERSION="v0.8.2"
 SUPPORT_LINK="https://discord.gg/buDBbSGJmQ"
 
 
@@ -80,14 +80,17 @@ print_brake 30
 echo
 case "$OS" in
 debian | ubuntu)
-curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - && apt-get install -y nodejs && apt-get install -y zip
-;;
-
-centos)
-[ "$OS_VER_MAJOR" == "7" ] && curl -sL https://rpm.nodesource.com/setup_14.x | sudo -E bash - && sudo yum install -y nodejs yarn && sudo yum install -y zip
-[ "$OS_VER_MAJOR" == "8" ] && curl -sL https://rpm.nodesource.com/setup_14.x | sudo -E bash - && sudo dnf install -y nodejs yarn && sudo dnf install -y zip
+curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - && apt-get install -y nodejs
 ;;
 esac
+
+if [ "$OS_VER_MAJOR" == "7" ]; then
+curl -sL https://rpm.nodesource.com/setup_14.x | sudo -E bash - && sudo yum install -y nodejs yarn
+fi
+
+if [ "$OS_VER_MAJOR" == "8" ]; then
+curl -sL https://rpm.nodesource.com/setup_14.x | sudo -E bash - && sudo dnf install -y nodejs
+fi
 }
 
 

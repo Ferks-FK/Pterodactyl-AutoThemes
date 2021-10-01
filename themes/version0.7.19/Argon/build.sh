@@ -13,9 +13,8 @@ set -e
 ########################################################
 
 #### Variables ####
-SCRIPT_VERSION="v0.8.1"
+SCRIPT_VERSION="v0.8.2"
 ARGON="APP_THEME=argon"
-SUPPORT_LINK="https://discord.gg/buDBbSGJmQ"
 
 
 print_brake() {
@@ -83,12 +82,15 @@ case "$OS" in
 debian | ubuntu)
 apt-get install -y zip
 ;;
-
-centos)
-[ "$OS_VER_MAJOR" == "7" ] && yum install -y zip
-[ "$OS_VER_MAJOR" == "8" ] && dnf install -y zip
-;;
 esac
+
+if [ "$OS_VER_MAJOR" == "7" ]; then
+sudo yum install -y zip
+fi
+
+if [ "$OS_VER_MAJOR" == "8" ]; then
+sudo dnf install -y zip
+fi
 }
 
 
@@ -142,7 +144,6 @@ echo
 echo -e "* ${GREEN}The theme ${YELLOW}Argon${GREEN} was successfully installed."
 echo -e "* A security backup of your panel has been created."
 echo -e "* Thank you for using this script."
-echo -e "* Support group: ${YELLOW}$(hyperlink "$SUPPORT_LINK")${reset}"
 echo
 print_brake 50
 }
