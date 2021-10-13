@@ -2,7 +2,7 @@
     Pterodactyl-AutoThemes
 </h1>
 </br>
-This is a theme installation script for the [Pterodactyl Panel](https://github.com/pterodactyl/panel).
+This is a theme installation script for the [Pterodactyl Panel](https://github.com/pterodactyl/panel)
 
 The script installs themes that are compatible with their respective panel versions.
 
