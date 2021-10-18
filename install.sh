@@ -12,7 +12,7 @@ set -e
 #
 ########################################################
 
-SCRIPT_VERSION="v0.8.3"
+SCRIPT_VERSION="v0.8.4"
 
 
 print_brake() {
@@ -99,6 +99,10 @@ ZingTheme() {
 bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/ZingTheme/build.sh)
 }
 
+FlancoTheme() {
+bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/FlancoTheme/build.sh)
+}
+
 
 while [ "$done" == false ]; do
   options=(
@@ -107,6 +111,7 @@ while [ "$done" == false ]; do
     "Install Enola (Only 1.x)"
     "Install Twilight (Only 1.x)"
     "Install Zing Theme (Only 1.x)"
+    "Install Flanco Theme (Only 1.x)"
     
     
     "Cancel Installation"
@@ -118,6 +123,7 @@ while [ "$done" == false ]; do
     "Enola"
     "Twilight"
     "ZingTheme"
+    "FlancoTheme"
     
     
     "cancel"
