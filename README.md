@@ -15,7 +15,6 @@ The script installs themes that are compatible with their respective panel versi
 # Support
 
 If you have any problems with the script, ask for support in our official group [Pterodacyl-AutoThemes Support](https://discord.gg/buDBbSGJmQ)
-[ptero](https://github.com/pterodactyl/panel)
 
 # How to use
 Just run the following command as root user.
