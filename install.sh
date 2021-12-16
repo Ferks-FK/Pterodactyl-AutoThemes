@@ -12,7 +12,7 @@ set -e
 #
 ########################################################
 
-SCRIPT_VERSION="v0.8.5"
+SCRIPT_VERSION="v0.8.6"
 
 
 print_brake() {
@@ -107,11 +107,11 @@ bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes
 while [ "$done" == false ]; do
   options=(
     "Restore Panel Backup (Only if you have an installation problem.)"
-    "Install Dracula (Only 1.x)"
-    "Install Enola (Only 1.x)"
-    "Install Twilight (Only 1.x)"
-    "Install Zing Theme (Only 1.x)"
-    "Install Flanco Theme (Only 1.x)"
+    "Install Dracula (Only 1.6.6)"
+    "Install Enola (Only 1.6.6)"
+    "Install Twilight (Only 1.6.6)"
+    "Install Zing Theme (Only 1.6.6)"
+    "Install Flanco Theme (Only 1.6.6)"
     
     
     "Cancel Installation"

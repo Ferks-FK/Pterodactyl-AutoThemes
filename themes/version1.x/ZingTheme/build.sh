@@ -13,7 +13,7 @@ set -e
 ########################################################
 
 #### Variables ####
-SCRIPT_VERSION="v0.8.5"
+SCRIPT_VERSION="v0.8.6"
 SUPPORT_LINK="https://discord.gg/buDBbSGJmQ"
 
 
@@ -34,6 +34,7 @@ hyperlink() {
 
 GREEN="\e[0;92m"
 YELLOW="\033[1;33m"
+red='\033[0;31m'
 reset="\e[0m"
 
 
@@ -69,6 +70,43 @@ check_distro() {
   OS_VER_MAJOR=$(echo "$OS_VER" | cut -d. -f1)
 }
 
+#### Verify Compatibility ####
+
+compatibility() {
+echo
+print_brake 57
+echo -e "* ${GREEN}Checking if the theme is compatible with your panel...${reset}"
+print_brake 57
+echo
+sleep 2
+DIR="/var/www/pterodactyl/config/app.php"
+CODE="    'version' => '1.6.6',"
+if [ -f "$DIR" ]; then
+  VERSION=$(cat "$DIR" | grep -n ^ | grep ^12: | cut -d: -f2)
+    if [ "$VERSION" == "$CODE" ]; then
+        echo
+        print_brake 23
+        echo -e "* ${GREEN}Compatible Version!${reset}"
+        print_brake 23
+        echo
+      else
+        echo
+        print_brake 24
+        echo -e "* ${red}Incompatible Version!${reset}"
+        print_brake 24
+        echo
+        exit 1
+    fi
+  else
+    echo
+    print_brake 26
+    echo -e "* ${red}The file doesn't exist!${reset}"
+    print_brake 26
+    echo
+    exit 1
+fi
+}
+
 
 #### Install Dependencies ####
 
@@ -80,7 +118,7 @@ print_brake 30
 echo
 case "$OS" in
 debian | ubuntu)
-curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - && apt-get install -y nodejs && apt-get install -y zip
+curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - && apt-get install -y nodejs && sudo apt-get install -y zip
 ;;
 esac
 
@@ -165,6 +203,7 @@ print_brake 50
 
 #### Exec Script ####
 check_distro
+compatibility
 dependencies
 backup
 download_files
