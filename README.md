@@ -31,7 +31,7 @@ bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes
 
 **Example:** ```# bash <(curl -s...```
 
-# Themes for the 1.x panel
+# Themes for the 1.6.6 panel
 
 ## Dracula
 ### User:
