@@ -15,6 +15,14 @@ set -e
 #### Variables ####
 SUPPORT_LINK="https://discord.gg/buDBbSGJmQ"
 
+#### ADDONS FILES ####
+
+PTERO="/var/www/pterodactyl"
+DET="$PTERO/resources/scripts/user.css"
+ZING="$PTERO/resources/scripts/components/SidePanel.tsx"
+
+#### ADDONS FILES ####
+
 
 print_brake() {
   for ((n = 0; n < $1; n++)); do
@@ -37,55 +45,24 @@ reset="\e[0m"
 red='\033[0;31m'
 
 
-#### Removal of theme files ####
+#### Deletes all files installed by the script ####
 
-DET() {
-if [ -f "/var/www/pterodactyl/resources/scripts/user.css" ]; then
-cd /var/www/pterodactyl/resources/scripts
-rm -r user.css
-cd
-else
-echo
+delete_files() {
+#### THEMES DRACULA, ENOLA AND TWILIGHT ####
+if [ -f "$DET" ]; then
+  rm -r "$DET"
+  rm -r "$PTERO/public/themes/pterodactyl/css/admin.css"
+  sed -i '6d' "$PTERO/resources/scripts/index.tsx"
+  sed -i '33d' "$PTERO/resources/views/layouts/admin.blade.php"
 fi
-if [ -f "/var/www/pterodactyl/public/themes/pterodactyl/css/admin.css" ]; then
-cd /var/www/pterodactyl/public/themes/pterodactyl/css
-rm -r admin.css
-cd
-else
-echo
-fi
-}
+#### THEMES DRACULA, ENOLA AND TWILIGHT ####
 
-zing() {
-if [ -f "/var/www/pterodactyl/resources/scripts/components/SidePanel.tsx" ]; then
-cd /var/www/pterodactyl/resources/scripts/components
-rm -r SidePanel.tsx
-cd
-else
-echo
+#### THEME ZINGTHEME ####
+if [ -f "$ZING" ]; then
+  rm -r "$ZING"
+  rm -r "$PTERO/resources/scripts/components/server/files/FileViewer.tsx"
 fi
-if [ -f "/var/www/pterodactyl/resources/scripts/components/server/files/FileViewer.tsx" ]; then
-cd /var/www/pterodactyl/resources/scripts/components/server/files
-rm -r FileViewer.tsx
-cd
-else
-echo
-fi
-}
-
-argon() {
-if [ -d "/var/www/pterodactyl/public/themes/argon" ]; then
-cd /var/www/pterodactyl/public/themes
-rm -R argon
-else
-echo
-fi
-if [ -d "/var/www/pterodactyl/resources/themes/argon" ]; then
-cd /var/www/pterodactyl/resources/themes
-rm -R argon
-else
-echo
-fi
+#### THEME ZINGTHEME ####
 }
 
 
@@ -97,26 +74,18 @@ print_brake 35
 echo -e "* ${GREEN}Checking for a backup...${reset}"
 print_brake 35
 echo
-if [ -f "/var/www/pterodactyl/PanelBackup/PanelBackup.zip" ]; then
-cd /var/www/pterodactyl/PanelBackup
-unzip PanelBackup.zip
-rm -R PanelBackup.zip
-cp -rf app config database public resources routes storage .env /var/www/pterodactyl
-cd
-else
-print_brake 45
-echo -e "* ${red}There was no backup to restore, Aborting...${reset}"
-print_brake 45
-echo
-exit 1
-fi
-if [ -f "/var/www/pterodactyl/PanelBackup/tailwind.config.js" ]; then
-cd /var/www/pterodactyl/PanelBackup
-cp -rf tailwind.config.js /var/www/pterodactyl
-cd ..
-rm -rf PanelBackup
-else
-echo
+if [ -f "$PTERO/PanelBackup/PanelBackup.zip" ]; then
+    cd "$PTERO/PanelBackup"
+    unzip PanelBackup.zip
+    rm -R PanelBackup.zip
+    cp -r -- * .env "$PTERO"
+    rm -r "$PTERO/PanelBackup"
+  else
+    print_brake 45
+    echo -e "* ${red}There was no backup to restore, Aborting...${reset}"
+    print_brake 45
+    echo
+    exit 1
 fi
 }
 
@@ -133,8 +102,6 @@ print_brake 50
 
 
 #### Exec Script ####
-DET
-zing
-argon
+delete_files
 restore
 bye
