@@ -14,7 +14,7 @@ set -e
 ########################################################
 
 #### Variables ####
-SCRIPT_VERSION="v0.8.7"
+SCRIPT_VERSION="v0.8.8"
 SUPPORT_LINK="https://discord.gg/buDBbSGJmQ"
 PTERO="/var/www/pterodactyl"
 
@@ -72,6 +72,28 @@ check_distro() {
   OS_VER_MAJOR=$(echo "$OS_VER" | cut -d. -f1)
 }
 
+#### Find where pterodactyl is installed ####
+
+find_pterodactyl() {
+echo
+print_brake 47
+echo -e "* ${GREEN}Looking for your pterodactyl installation...${reset}"
+print_brake 47
+echo
+sleep 2
+if [ -d "/var/www/pterodactyl" ]; then
+    PTERO_INSTALL=true
+    PTERO="/var/www/pterodactyl"
+  elif [ -d "/var/www/panel" ]; then
+    PTERO_INSTALL=true
+    PTERO="/var/www/panel"
+  elif [ -d "/var/www/ptero" ]; then
+    PTERO_INSTALL=true
+    PTERO="/var/www/ptero"
+  else
+    PTERO_INSTALL=false
+fi
+}
 
 #### Verify Compatibility ####
 
@@ -83,9 +105,9 @@ print_brake 57
 echo
 sleep 2
 DIR="$PTERO/config/app.php"
-CODE="    'version' => '1.6.6',"
+VERSION="1.6.6"
 if [ -f "$DIR" ]; then
-  VERSION=$(cat "$DIR" | grep -n ^ | grep ^12: | cut -d: -f2)
+  CODE=$(cat "$DIR" | grep -n ^ | grep ^12: | cut -d: -f2 | cut -c18-23 | sed "s/'//g")
     if [ "$VERSION" == "$CODE" ]; then
         echo
         print_brake 23
@@ -214,10 +236,25 @@ print_brake 50
 
 #### Exec Script ####
 check_distro
-compatibility
-dependencies
-backup
-download_files
-production
-bye
+find_pterodactyl
+if [ "$PTERO_INSTALL" == true ]; then
+    echo
+    print_brake 66
+    echo -e "* ${GREEN}Installation of the panel found, continuing the installation...${reset}"
+    print_brake 66
+    echo
+    compatibility
+    dependencies
+    backup
+    download_files
+    production
+    bye
+  elif [ "$PTERO_INSTALL" == false ]; then
+    echo
+    print_brake 66
+    echo -e "* ${red}The installation of your panel could not be located, aborting...${reset}"
+    print_brake 66
+    echo
+    exit 1
+fi
 
