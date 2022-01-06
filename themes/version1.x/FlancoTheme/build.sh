@@ -13,10 +13,10 @@ set -e
 #
 ########################################################
 
-#### Variables ####
-SCRIPT_VERSION="v0.8.8"
+#### Fixed Variables ####
+
+SCRIPT_VERSION="v0.8.9"
 SUPPORT_LINK="https://discord.gg/buDBbSGJmQ"
-PTERO="/var/www/pterodactyl"
 
 
 print_brake() {
@@ -164,7 +164,7 @@ echo
 print_brake 32
 echo -e "* ${GREEN}Performing security backup...${reset}"
 print_brake 32
-  if [ -f "$PTERO/PanelBackup/PanelBackup.zip" ]; then
+  if [ -d "$PTERO/PanelBackup[Auto-Themes]" ]; then
     echo
     print_brake 45
     echo -e "* ${GREEN}There is already a backup, skipping step...${reset}"
@@ -173,11 +173,14 @@ print_brake 32
   else
     cd "$PTERO"
     if [ -d "$PTERO/node_modules" ]; then
-      rm -r "$PTERO/node_modules"
+        tar -czvf "PanelBackup[Auto-Themes].tar.gz" --exclude "node_modules" -- * .env
+        mkdir -p "PanelBackup[Auto-Themes]"
+        mv "PanelBackup[Auto-Themes].tar.gz" "PanelBackup[Auto-Themes]"
+      else
+        tar -czvf "PanelBackup[Auto-Themes].tar.gz" -- * .env
+        mkdir -p "PanelBackup[Auto-Themes]"
+        mv "PanelBackup[Auto-Themes].tar.gz" "PanelBackup[Auto-Themes]"
     fi
-    mkdir -p PanelBackup
-    zip -r PanelBackup.zip -- * .env
-    mv PanelBackup.zip PanelBackup
 fi
 }
 

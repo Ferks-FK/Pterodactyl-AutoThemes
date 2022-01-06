@@ -12,16 +12,16 @@ set -e
 #
 ########################################################
 
-#### Variables ####
+#### Fixed Variables ####
+
 SUPPORT_LINK="https://discord.gg/buDBbSGJmQ"
 
-#### ADDONS FILES ####
+#### Update Variables ####
 
-PTERO="/var/www/pterodactyl"
+update_variables() {
 DET="$PTERO/resources/scripts/user.css"
 ZING="$PTERO/resources/scripts/components/SidePanel.tsx"
-
-#### ADDONS FILES ####
+}
 
 
 print_brake() {
@@ -65,6 +65,8 @@ if [ -d "/var/www/pterodactyl" ]; then
   else
     PTERO_INSTALL=false
 fi
+# Update the variables after detection of the pterodactyl installation #
+update_variables
 }
 
 
@@ -75,8 +77,6 @@ delete_files() {
 if [ -f "$DET" ]; then
   rm -r "$DET"
   rm -r "$PTERO/public/themes/pterodactyl/css/admin.css"
-  sed -i '6d' "$PTERO/resources/scripts/index.tsx"
-  sed -i '33d' "$PTERO/resources/views/layouts/admin.blade.php"
 fi
 #### THEMES DRACULA, ENOLA AND TWILIGHT ####
 
@@ -97,12 +97,12 @@ print_brake 35
 echo -e "* ${GREEN}Checking for a backup...${reset}"
 print_brake 35
 echo
-if [ -f "$PTERO/PanelBackup/PanelBackup.zip" ]; then
-    cd "$PTERO/PanelBackup"
-    unzip PanelBackup.zip
-    rm -R PanelBackup.zip
+if [ -d "$PTERO/PanelBackup[Auto-Themes]" ]; then
+    cd "$PTERO/PanelBackup[Auto-Themes]"
+    tar -xzvf "PanelBackup[Auto-Themes].tar.gz"
+    rm -R "PanelBackup[Auto-Themes].tar.gz"
     cp -r -- * .env "$PTERO"
-    rm -r "$PTERO/PanelBackup"
+    rm -r "$PTERO/PanelBackup[Auto-Themes]"
   else
     print_brake 45
     echo -e "* ${red}There was no backup to restore, Aborting...${reset}"

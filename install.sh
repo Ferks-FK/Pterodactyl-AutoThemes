@@ -12,7 +12,7 @@ set -e
 #
 ########################################################
 
-SCRIPT_VERSION="v0.8.8"
+SCRIPT_VERSION="v0.8.9"
 
 
 print_brake() {
@@ -28,8 +28,6 @@ hyperlink() {
 
 #### Colors ####
 
-GREEN="\e[0;92m"
-YELLOW="\033[1;33m"
 reset="\e[0m"
 red='\033[0;31m'
 
@@ -72,7 +70,7 @@ echo
 print_brake 70
 echo "* Pterodactyl-AutoThemes Script @ $SCRIPT_VERSION"
 echo
-echo "* Copyright (C) 2021 - 2021, Ferks-FK."
+echo "* Copyright (C) 2021 - $(date +%Y), Ferks-FK."
 echo "* https://github.com/Ferks-FK/Pterodactyl-AutoThemes"
 echo
 echo "* This script is not associated with the official Pterodactyl Project."
