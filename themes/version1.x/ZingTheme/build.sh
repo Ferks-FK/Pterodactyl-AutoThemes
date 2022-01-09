@@ -15,9 +15,14 @@ set -e
 
 #### Fixed Variables ####
 
-SCRIPT_VERSION="v0.8.9"
+SCRIPT_VERSION="v0.9"
 SUPPORT_LINK="https://discord.gg/buDBbSGJmQ"
 
+
+update_variables() {
+PARTICLES="$PTERO/resources/scripts/components/auth/LoginFormContainer.tsx"
+ZING="$PTERO/resources/scripts/components/SidePanel.tsx"
+}
 
 print_brake() {
   for ((n = 0; n < $1; n++)); do
@@ -93,6 +98,8 @@ if [ -d "/var/www/pterodactyl" ]; then
   else
     PTERO_INSTALL=false
 fi
+# Update the variables after detection of the pterodactyl installation #
+update_variables
 }
 
 #### Verify Compatibility ####
@@ -143,16 +150,16 @@ print_brake 30
 echo
 case "$OS" in
 debian | ubuntu)
-curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - && apt-get install -y nodejs
+curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash - && apt-get install -y nodejs
 ;;
 esac
 
 if [ "$OS_VER_MAJOR" == "7" ]; then
-curl -sL https://rpm.nodesource.com/setup_14.x | sudo -E bash - && sudo yum install -y nodejs yarn
+curl -sL https://rpm.nodesource.com/setup_16.x | sudo -E bash - && sudo yum install -y nodejs yarn
 fi
 
 if [ "$OS_VER_MAJOR" == "8" ]; then
-curl -sL https://rpm.nodesource.com/setup_14.x | sudo -E bash - && sudo dnf install -y nodejs
+curl -sL https://rpm.nodesource.com/setup_16.x | sudo -E bash - && sudo dnf install -y nodejs
 fi
 }
 
@@ -204,6 +211,42 @@ cd "$PTERO"
 rm -rf temp
 }
 
+#### Check if it is already installed ####
+
+verify_installation() {
+  if [ -f "$ZING" ]; then
+      print_brake 61
+      echo -e "* ${red}This addon is already installed in your panel, aborting...${reset}"
+      print_brake 61
+      exit 1
+    else
+      dependencies
+      backup
+      download_files
+      production
+      bye
+  fi
+}
+
+#### Check if another conflicting addon is installed ####
+
+check_conflict() {
+echo
+print_brake 66
+echo -e "* ${GREEN}Checking if a similar/conflicting addon is already installed...${reset}"
+print_brake 66
+echo
+sleep 2
+if grep '<Particles className="particles"' "$PARTICLES" &>/dev/null; then
+    echo
+    print_brake 62
+    echo -e "* ${red}The addon ${YELLOW}Particles Login ${red}is already installed, aborting...${reset}"
+    print_brake 62
+    echo
+    exit 1
+fi
+}
+
 #### Panel Production ####
 
 production() {
@@ -247,11 +290,8 @@ if [ "$PTERO_INSTALL" == true ]; then
     print_brake 66
     echo
     compatibility
-    dependencies
-    backup
-    download_files
-    production
-    bye
+    check_conflict
+    verify_installation
   elif [ "$PTERO_INSTALL" == false ]; then
     echo
     print_brake 66

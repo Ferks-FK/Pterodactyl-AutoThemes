@@ -19,6 +19,12 @@ SCRIPT_VERSION="v0.9"
 SUPPORT_LINK="https://discord.gg/buDBbSGJmQ"
 
 
+update_variables() {
+PARTICLES="$PTERO/resources/scripts/components/auth/LoginFormContainer.tsx"
+ZING="$PTERO/resources/scripts/components/SidePanel.tsx"
+}
+
+
 print_brake() {
   for ((n = 0; n < $1; n++)); do
     echo -n "#"
@@ -93,6 +99,8 @@ if [ -d "/var/www/pterodactyl" ]; then
   else
     PTERO_INSTALL=false
 fi
+# Update the variables after detection of the pterodactyl installation #
+update_variables
 }
 
 #### Verify Compatibility ####
@@ -143,16 +151,16 @@ print_brake 30
 echo
 case "$OS" in
 debian | ubuntu)
-curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash - && apt-get install -y nodejs && sudo apt-get install -y zip
+curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash - && apt-get install -y nodejs
 ;;
 esac
 
 if [ "$OS_VER_MAJOR" == "7" ]; then
-curl -sL https://rpm.nodesource.com/setup_16.x | sudo -E bash - && sudo yum install -y nodejs yarn && sudo yum install -y zip
+curl -sL https://rpm.nodesource.com/setup_16.x | sudo -E bash - && sudo yum install -y nodejs yarn
 fi
 
 if [ "$OS_VER_MAJOR" == "8" ]; then
-curl -sL https://rpm.nodesource.com/setup_16.x | sudo -E bash - && sudo dnf install -y nodejs && sudo dnf install -y zip
+curl -sL https://rpm.nodesource.com/setup_16.x | sudo -E bash - && sudo dnf install -y nodejs
 fi
 }
 
@@ -196,13 +204,50 @@ echo
 cd "$PTERO"
 mkdir -p temp
 cd temp
-curl -sSLo FlancoTheme.tar.gz https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/FlancoTheme/FlancoTheme.tar.gz
-tar -xzvf FlancoTheme.tar.gz
-cd FlancoTheme
+curl -sSLo ParticlesLogin.tar.gz https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/ParticlesLogin/ParticlesLogin.tar.gz
+tar -xzvf ParticlesLogin.tar.gz
+cd ParticlesLogin
 cp -rf -- * "$PTERO"
 cd "$PTERO"
-rm -rf temp
+rm -r temp
 }
+
+#### Check if it is already installed ####
+
+verify_installation() {
+  if grep '<Particles className="particles"' "$PARTICLES" &>/dev/null; then
+      print_brake 61
+      echo -e "* ${red}This addon is already installed in your panel, aborting...${reset}"
+      print_brake 61
+      exit 1
+    else
+      dependencies
+      backup
+      download_files
+      production
+      bye
+  fi
+}
+
+#### Check if another conflicting addon is installed ####
+
+check_conflict() {
+echo
+print_brake 66
+echo -e "* ${GREEN}Checking if a similar/conflicting addon is already installed...${reset}"
+print_brake 66
+echo
+sleep 2
+if [ -f "$ZING" ]; then
+    echo
+    print_brake 55
+    echo -e "* ${red}The addon ${YELLOW}Zing Theme ${red}is already installed, aborting...${reset}"
+    print_brake 55
+    echo
+    exit 1
+fi
+}
+
 
 #### Panel Production ####
 
@@ -211,15 +256,14 @@ echo
 print_brake 25
 echo -e "* ${GREEN}Producing panel...${reset}"
 print_brake 25
+echo
 if [ -d "$PTERO/node_modules" ]; then
     cd "$PTERO"
-    yarn add @emotion/react
     yarn build:production
   else
     npm i -g yarn
     cd "$PTERO"
     yarn install
-    yarn add @emotion/react
     yarn build:production
 fi
 }
@@ -228,7 +272,7 @@ fi
 bye() {
 print_brake 50
 echo
-echo -e "* ${GREEN}The theme ${YELLOW}Flanco Theme${GREEN} was successfully installed."
+echo -e "* ${GREEN}The theme ${YELLOW}Particles Login${GREEN} was successfully installed."
 echo -e "* A security backup of your panel has been created."
 echo -e "* Thank you for using this script."
 echo -e "* Support group: ${YELLOW}$(hyperlink "$SUPPORT_LINK")${reset}"
@@ -247,11 +291,8 @@ if [ "$PTERO_INSTALL" == true ]; then
     print_brake 66
     echo
     compatibility
-    dependencies
-    backup
-    download_files
-    production
-    bye
+    check_conflict
+    verify_installation
   elif [ "$PTERO_INSTALL" == false ]; then
     echo
     print_brake 66
@@ -260,4 +301,3 @@ if [ "$PTERO_INSTALL" == true ]; then
     echo
     exit 1
 fi
-
