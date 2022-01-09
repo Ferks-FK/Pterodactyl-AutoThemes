@@ -84,6 +84,7 @@ fi
 if [ -f "$ZING" ]; then
   rm -r "$ZING"
   rm -r "$PTERO/resources/scripts/components/server/files/FileViewer.tsx"
+  rm -r "$PTERO/resources/scripts/components/SidePanel.tsx"
 fi
 #### THEME ZINGTHEME ####
 }
