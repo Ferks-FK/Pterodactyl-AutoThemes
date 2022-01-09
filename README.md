@@ -72,6 +72,14 @@ bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes
 ### User:
 ![2](https://user-images.githubusercontent.com/69549678/137675018-ca602ba4-de61-4b48-bb2f-8432c3ffc7ad.png)
 
+## Particles Login
+*Original Theme [Particles Login](https://pterodactylmarket.com/resource/367).*
+
+### Login:
+https://user-images.githubusercontent.com/69549678/148666091-2ded1b78-bfd2-4286-bd29-95dca5bb5aaf.mp4
+
+
+
 
 
 
