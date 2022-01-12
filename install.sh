@@ -101,10 +101,6 @@ FlancoTheme() {
 bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/FlancoTheme/build.sh)
 }
 
-ParticlesLogin() {
-bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/ParticlesLogin/build.sh)
-}
-
 
 while [ "$done" == false ]; do
   options=(
@@ -114,7 +110,6 @@ while [ "$done" == false ]; do
     "Install Twilight (Only 1.6.6)"
     "Install Zing Theme (Only 1.6.6)"
     "Install Flanco Theme (Only 1.6.6)"
-    "Install Particles Login (Only 1.6.6)"
     
     
     "Cancel Installation"
@@ -127,7 +122,6 @@ while [ "$done" == false ]; do
     "Twilight"
     "ZingTheme"
     "FlancoTheme"
-    "ParticlesLogin"
     
     
     "cancel"
