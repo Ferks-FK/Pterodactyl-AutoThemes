@@ -15,12 +15,11 @@ set -e
 
 #### Fixed Variables ####
 
-SCRIPT_VERSION="v0.9"
+SCRIPT_VERSION="v1.0"
 SUPPORT_LINK="https://discord.gg/buDBbSGJmQ"
 
 
 update_variables() {
-PARTICLES="$PTERO/resources/scripts/components/auth/LoginFormContainer.tsx"
 ZING="$PTERO/resources/scripts/components/SidePanel.tsx"
 }
 
@@ -229,6 +228,7 @@ verify_installation() {
 }
 
 #### Check if another conflicting addon is installed ####
+# This will only be commented on here instead of removed, to be used later, and also an Easter Egg xD #
 
 check_conflict() {
 echo
@@ -291,7 +291,7 @@ if [ "$PTERO_INSTALL" == true ]; then
     print_brake 66
     echo
     compatibility
-    check_conflict
+    #check_conflict
     verify_installation
   elif [ "$PTERO_INSTALL" == false ]; then
     echo
