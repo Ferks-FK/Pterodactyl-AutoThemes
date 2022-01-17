@@ -12,7 +12,7 @@ set -e
 #
 ########################################################
 
-SCRIPT_VERSION="v1.0"
+SCRIPT_VERSION="v1.1"
 
 
 print_brake() {
@@ -32,11 +32,11 @@ reset="\e[0m"
 red='\033[0;31m'
 
 error() {
-  COLOR_RED='\033[0;31m'
-  COLOR_NC='\033[0m'
+  red='\033[0;31m'
+  reset="\e[0m"
 
   echo ""
-  echo -e "* ${COLOR_RED}ERROR${COLOR_NC}: $1"
+  echo -e "* ${red}ERROR${reset}: $1"
   echo ""
 }
 
