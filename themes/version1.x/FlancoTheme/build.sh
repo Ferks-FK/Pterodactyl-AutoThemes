@@ -15,7 +15,7 @@ set -e
 
 #### Fixed Variables ####
 
-SCRIPT_VERSION="v0.9"
+SCRIPT_VERSION="v1.1"
 SUPPORT_LINK="https://discord.gg/buDBbSGJmQ"
 
 
@@ -105,7 +105,7 @@ print_brake 57
 echo
 sleep 2
 DIR="$PTERO/config/app.php"
-VERSION="1.6.6"
+VERSION="1.7.0"
 if [ -f "$DIR" ]; then
   CODE=$(cat "$DIR" | grep -n ^ | grep ^12: | cut -d: -f2 | cut -c18-23 | sed "s/'//g")
     if [ "$VERSION" == "$CODE" ]; then
