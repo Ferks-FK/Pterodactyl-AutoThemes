@@ -9,10 +9,7 @@
 This is a theme installation script for the [Pterodactyl Panel](https://github.com/pterodactyl/panel).<br>
 The script installs themes that are compatible with their respective panel versions.
 
-![1](https://user-images.githubusercontent.com/69549678/135567472-4be8d459-1ce1-4eb8-92ab-758eba37a563.PNG)
-
-
-
+![1](https://user-images.githubusercontent.com/69549678/150704252-85613f25-5a7e-437d-ae96-de1864ba2196.PNG)
 
 
 <h1 align="center">Support</h1>
