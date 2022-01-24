@@ -15,8 +15,15 @@ set -e
 
 #### Fixed Variables ####
 
-SCRIPT_VERSION="v1.1"
+SCRIPT_VERSION="v1.2"
 SUPPORT_LINK="https://discord.gg/buDBbSGJmQ"
+
+#### Update Variables ####
+
+update_variables() {
+CONFIG_FILE="$PTERO/config/app.php"
+PANEL_VERSION=$(cat "$CONFIG_FILE" | grep -n ^ | grep ^12: | cut -d: -f2 | cut -c18-23 | sed "s/'//g")
+}
 
 
 print_brake() {
@@ -93,6 +100,8 @@ if [ -d "/var/www/pterodactyl" ]; then
   else
     PTERO_INSTALL=false
 fi
+# Update the variables after detection of the pterodactyl installation #
+update_variables
 }
 
 #### Verify Compatibility ####
@@ -100,35 +109,31 @@ fi
 compatibility() {
 echo
 print_brake 57
-echo -e "* ${GREEN}Checking if the theme is compatible with your panel...${reset}"
+echo -e "* ${GREEN}Checking if the addon is compatible with your panel...${reset}"
 print_brake 57
 echo
 sleep 2
-DIR="$PTERO/config/app.php"
-VERSION="1.7.0"
-if [ -f "$DIR" ]; then
-  CODE=$(cat "$DIR" | grep -n ^ | grep ^12: | cut -d: -f2 | cut -c18-23 | sed "s/'//g")
-    if [ "$VERSION" == "$CODE" ]; then
-        echo
-        print_brake 23
-        echo -e "* ${GREEN}Compatible Version!${reset}"
-        print_brake 23
-        echo
-      else
-        echo
-        print_brake 24
-        echo -e "* ${red}Incompatible Version!${reset}"
-        print_brake 24
-        echo
-        exit 1
-    fi
-  else
-    echo
-    print_brake 26
-    echo -e "* ${red}The file doesn't exist!${reset}"
-    print_brake 26
-    echo
-    exit 1
+if [ -f "$CONFIG_FILE" ]; then
+  if [ "$PANEL_VERSION" == "1.6.6" ]; then
+      echo
+      print_brake 23
+      echo -e "* ${GREEN}Compatible Version!${reset}"
+      print_brake 23
+      echo
+    elif [ "$PANEL_VERSION" == "1.7.0" ]; then
+      echo
+      print_brake 23
+      echo -e "* ${GREEN}Compatible Version!${reset}"
+      print_brake 23
+      echo
+    else
+      echo
+      print_brake 24
+      echo -e "* ${red}Incompatible Version!${reset}"
+      print_brake 24
+      echo
+      exit 1
+  fi
 fi
 }
 
@@ -145,15 +150,11 @@ case "$OS" in
 debian | ubuntu)
 curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash - && apt-get install -y nodejs
 ;;
+centos)
+[ "$OS_VER_MAJOR" == "7" ] && curl -sL https://rpm.nodesource.com/setup_16.x | sudo -E bash - && sudo yum install -y nodejs yarn
+[ "$OS_VER_MAJOR" == "8" ] && curl -sL https://rpm.nodesource.com/setup_16.x | sudo -E bash - && sudo dnf install -y nodejs
+;;
 esac
-
-if [ "$OS_VER_MAJOR" == "7" ]; then
-curl -sL https://rpm.nodesource.com/setup_16.x | sudo -E bash - && sudo yum install -y nodejs yarn
-fi
-
-if [ "$OS_VER_MAJOR" == "8" ]; then
-curl -sL https://rpm.nodesource.com/setup_16.x | sudo -E bash - && sudo dnf install -y nodejs
-fi
 }
 
 
@@ -220,6 +221,7 @@ echo
 print_brake 25
 echo -e "* ${GREEN}Producing panel...${reset}"
 print_brake 25
+echo
 if [ -d "$PTERO/node_modules" ]; then
     cd "$PTERO"
     yarn add @emotion/react
@@ -237,7 +239,7 @@ fi
 bye() {
 print_brake 50
 echo
-echo -e "* ${GREEN}The theme ${YELLOW}Enola${GREEN} was successfully installed."
+echo -e "${GREEN}* The theme ${YELLOW}Enola${GREEN} was successfully installed."
 echo -e "* A security backup of your panel has been created."
 echo -e "* Thank you for using this script."
 echo -e "* Support group: ${YELLOW}$(hyperlink "$SUPPORT_LINK")${reset}"
