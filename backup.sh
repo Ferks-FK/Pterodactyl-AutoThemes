@@ -20,7 +20,7 @@ SUPPORT_LINK="https://discord.gg/buDBbSGJmQ"
 
 update_variables() {
 INFORMATIONS="/var/log/Pterodactyl-AutoThemes-informations"
-DET="$PTERO/resources/scripts/user.css"
+DET="$PTERO/public/themes/pterodactyl/css/admin.css"
 ZING="$PTERO/resources/scripts/components/SidePanel.tsx"
 if [ -f "${INFORMATIONS}/background.txt" ]; then
   BACKGROUND="$(cat "${INFORMATIONS}/background.txt")"
