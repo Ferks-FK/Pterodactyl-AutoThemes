@@ -25,6 +25,7 @@ update_variables() {
 CONFIG_FILE="$PTERO/config/app.php"
 PANEL_VERSION="$(cat "$CONFIG_FILE" | grep -n ^ | grep ^12: | cut -d: -f2 | cut -c18-23 | sed "s/'//g")"
 VIDEO_FILE="$(cd "$PTERO/public" && find . -iname '*.mp4' | tail -1 | sed "s/.\///g")"
+ZING="$PTERO/resources/scripts/components/SidePanel.tsx"
 }
 
 
@@ -205,12 +206,32 @@ echo
 cd "$PTERO"
 mkdir -p temp
 cd temp
-curl -sSLo BackgroundVideo.tar.gz https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/BackgroundVideo/BackgroundVideo.tar.gz
+#curl -sSLo BackgroundVideo.tar.gz https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/BackgroundVideo/BackgroundVideo.tar.gz
+curl -sSLo BackgroundVideo.tar.gz https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/Big_Update/themes/version1.x/BackgroundVideo/BackgroundVideo.tar.gz
 tar -xzvf BackgroundVideo.tar.gz
 cd BackgroundVideo
 cp -rf -- * "$PTERO"
 cd "$PTERO"
 rm -r temp
+}
+
+#### Check if it is already installed ####
+
+verify_installation() {
+  if grep '<video autoPlay muted loop className="video">' "$PTERO/resources/scripts/components/App.tsx"; then
+      print_brake 61
+      echo -e "* ${red}This theme is already installed in your panel, aborting...${reset}"
+      print_brake 61
+      exit 1
+    else
+      dependencies
+      backup
+      download_files
+      detect_video
+      write_informations
+      production
+      bye
+  fi
 }
 
 #### Detect if the user has passed your video file in mp4 format ####
@@ -250,6 +271,32 @@ write_informations() {
 mkdir -p "$INFORMATIONS"
 # Write the filename to a file for the backup script to proceed later #
 echo "$VIDEO_FILE" >> "$INFORMATIONS/background.txt"
+}
+
+#### Check if another conflicting addon is installed ####
+
+check_conflict() {
+echo
+print_brake 66
+echo -e "* ${GREEN}Checking if a similar/conflicting addon is already installed...${reset}"
+print_brake 66
+echo
+sleep 2
+if [ -f "$PTERO/resources/scripts/user.css" ]; then
+    echo
+    print_brake 73
+    echo -e "* ${red}The theme ${YELLOW}Dracula, Enola or Twilight ${red}is already installed, aborting...${reset}"
+    print_brake 73
+    echo
+    exit 1
+  elif [ -f "$ZING" ]; then
+    echo
+    print_brake 56
+    echo -e "* ${red}The theme ${YELLOW}ZingTheme ${red}is already installed, aborting...${reset}"
+    print_brake 56
+    echo
+    exit 1
+fi
 }
 
 #### Panel Production ####
@@ -296,13 +343,8 @@ if [ "$PTERO_INSTALL" == true ]; then
     print_brake 66
     echo
     compatibility
-    dependencies
-    backup
-    download_files
-    detect_video
-    write_informations
-    production
-    bye
+    check_conflict
+    verify_installation
   elif [ "$PTERO_INSTALL" == false ]; then
     echo
     print_brake 66

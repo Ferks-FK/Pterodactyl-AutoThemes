@@ -211,7 +211,7 @@ rm -rf temp
 verify_installation() {
   if [ -f "$ZING" ]; then
       print_brake 61
-      echo -e "* ${red}This addon is already installed in your panel, aborting...${reset}"
+      echo -e "* ${red}This theme is already installed in your panel, aborting...${reset}"
       print_brake 61
       exit 1
     else
