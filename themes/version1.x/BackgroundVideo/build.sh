@@ -309,13 +309,11 @@ print_brake 25
 echo
 if [ -d "$PTERO/node_modules" ]; then
     cd "$PTERO"
-    yarn add @emotion/react
     yarn build:production
   else
     npm i -g yarn
     cd "$PTERO"
     yarn install
-    yarn add @emotion/react
     yarn build:production
 fi
 }
