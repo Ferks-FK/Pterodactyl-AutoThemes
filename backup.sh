@@ -94,7 +94,7 @@ fi
 
 #### BACKGROUND VIDEO ####
 if [ -f "$PTERO/public/$BACKGROUND" ]; then
-  rm -r "$BACKGROUND"
+  cd "$PTERO/public" && rm -r "$BACKGROUND"
   rm -r "$PTERO/resources/scripts/user.css"
   rm -r "$INFORMATIONS"
 fi
