@@ -282,7 +282,7 @@ echo -e "* ${GREEN}Checking if a similar/conflicting addon is already installed.
 print_brake 66
 echo
 sleep 2
-if [ -f "$PTERO/resources/scripts/user.css" ]; then
+if [ -f "$PTERO/public/themes/pterodactyl/css/admin.css" ]; then
     echo
     print_brake 73
     echo -e "* ${red}The theme ${YELLOW}Dracula, Enola or Twilight ${red}is already installed, aborting...${reset}"
