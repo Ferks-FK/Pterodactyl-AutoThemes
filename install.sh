@@ -114,7 +114,7 @@ while [ "$done" == false ]; do
     "Install Enola (Only 1.6.6 and 1.7.0)"
     "Install Twilight (Only 1.6.6 and 1.7.0)"
     "Install Zing Theme (Only 1.6.6 and 1.7.0)"
-    "Install Flanco Theme (Only 1.6.6 and 1.7.0"
+    "Install Flanco Theme (Only 1.6.6 and 1.7.0)"
     "Install Background Video (Only 1.6.6 and 1.7.0)"
     
     
