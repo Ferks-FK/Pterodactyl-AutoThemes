@@ -15,7 +15,7 @@ set -e
 
 #### Fixed Variables ####
 
-SCRIPT_VERSION="v1.2"
+SCRIPT_VERSION="v1.3"
 SUPPORT_LINK="https://discord.gg/buDBbSGJmQ"
 
 #### Update Variables ####
@@ -24,7 +24,6 @@ update_variables() {
 CONFIG_FILE="$PTERO/config/app.php"
 PANEL_VERSION=$(cat "$CONFIG_FILE" | grep -n ^ | grep ^12: | cut -d: -f2 | cut -c18-23 | sed "s/'//g")
 }
-
 
 print_brake() {
   for ((n = 0; n < $1; n++)); do

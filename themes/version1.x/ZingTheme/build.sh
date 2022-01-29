@@ -15,7 +15,7 @@ set -e
 
 #### Fixed Variables ####
 
-SCRIPT_VERSION="v1.2"
+SCRIPT_VERSION="v1.3"
 SUPPORT_LINK="https://discord.gg/buDBbSGJmQ"
 
 #### Update Variables ####
@@ -210,7 +210,7 @@ rm -rf temp
 verify_installation() {
   if [ -f "$ZING" ]; then
       print_brake 61
-      echo -e "* ${red}This addon is already installed in your panel, aborting...${reset}"
+      echo -e "* ${red}This theme is already installed in your panel, aborting...${reset}"
       print_brake 61
       exit 1
     else

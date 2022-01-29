@@ -12,7 +12,8 @@ set -e
 #
 ########################################################
 
-SCRIPT_VERSION="v1.2"
+
+SCRIPT_VERSION="v1.3"
 
 
 print_brake() {
@@ -32,11 +33,11 @@ reset="\e[0m"
 red='\033[0;31m'
 
 error() {
-  COLOR_RED='\033[0;31m'
-  COLOR_NC='\033[0m'
+  red='\033[0;31m'
+  reset="\e[0m"
 
   echo ""
-  echo -e "* ${COLOR_RED}ERROR${COLOR_NC}: $1"
+  echo -e "* ${red}ERROR${reset}: $1"
   echo ""
 }
 
@@ -101,15 +102,20 @@ FlancoTheme() {
 bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/FlancoTheme/build.sh)
 }
 
+BackgroundVideo() {
+bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/BackgroundVideo/build.sh)
+}
+
 
 while [ "$done" == false ]; do
   options=(
-    "Restore Panel Backup (To remove some theme and restore your old panel.)"
+    "Restore Panel Backup (Only if you have an installation problem.)"
     "Install Dracula (Only 1.6.6 and 1.7.0)"
     "Install Enola (Only 1.6.6 and 1.7.0)"
     "Install Twilight (Only 1.6.6 and 1.7.0)"
     "Install Zing Theme (Only 1.6.6 and 1.7.0)"
-    "Install Flanco Theme (Only 1.6.6 and 1.7.0)"
+    "Install Flanco Theme (Only 1.6.6 and 1.7.0"
+    "Install Background Video (Only 1.6.6 and 1.7.0)"
     
     
     "Cancel Installation"
@@ -122,6 +128,7 @@ while [ "$done" == false ]; do
     "Twilight"
     "ZingTheme"
     "FlancoTheme"
+    "BackgroundVideo"
     
     
     "cancel"

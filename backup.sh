@@ -19,8 +19,12 @@ SUPPORT_LINK="https://discord.gg/buDBbSGJmQ"
 #### Update Variables ####
 
 update_variables() {
-DET="$PTERO/resources/scripts/user.css"
+INFORMATIONS="/var/log/Pterodactyl-AutoThemes-informations"
+DET="$PTERO/public/themes/pterodactyl/css/admin.css"
 ZING="$PTERO/resources/scripts/components/SidePanel.tsx"
+if [ -f "${INFORMATIONS}/background.txt" ]; then
+  BACKGROUND="$(cat "${INFORMATIONS}/background.txt")"
+fi
 }
 
 
@@ -87,6 +91,14 @@ if [ -f "$ZING" ]; then
   rm -r "$PTERO/resources/scripts/components/SidePanel.tsx"
 fi
 #### THEME ZINGTHEME ####
+
+#### BACKGROUND VIDEO ####
+if [ -f "$PTERO/public/$BACKGROUND" ]; then
+  cd "$PTERO/public" && rm -r "$BACKGROUND"
+  rm -r "$PTERO/resources/scripts/user.css"
+  rm -r "$INFORMATIONS"
+fi
+#### BACKGROUND VIDEO ####
 }
 
 
