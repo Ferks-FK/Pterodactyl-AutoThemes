@@ -12,6 +12,7 @@ set -e
 #
 ########################################################
 
+
 SCRIPT_VERSION="v1.3"
 
 
@@ -109,12 +110,12 @@ bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes
 while [ "$done" == false ]; do
   options=(
     "Restore Panel Backup (Only if you have an installation problem.)"
-    "Install Dracula (Only 1.6.6)"
-    "Install Enola (Only 1.6.6)"
-    "Install Twilight (Only 1.6.6)"
-    "Install Zing Theme (Only 1.6.6)"
-    "Install Flanco Theme (Only 1.6.6)"
-    "Install Background Video (Only 1.6.6)"
+    "Install Dracula (Only 1.6.6 and 1.7.0)"
+    "Install Enola (Only 1.6.6 and 1.7.0)"
+    "Install Twilight (Only 1.6.6 and 1.7.0)"
+    "Install Zing Theme (Only 1.6.6 and 1.7.0)"
+    "Install Flanco Theme (Only 1.6.6 and 1.7.0"
+    "Install Background Video (Only 1.6.6 and 1.7.0)"
     
     
     "Cancel Installation"
