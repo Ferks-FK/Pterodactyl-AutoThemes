@@ -206,32 +206,12 @@ echo
 cd "$PTERO"
 mkdir -p temp
 cd temp
-#curl -sSLo BackgroundVideo.tar.gz https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/BackgroundVideo/BackgroundVideo.tar.gz
-curl -sSLo BackgroundVideo.tar.gz https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/Big_Update/themes/version1.x/BackgroundVideo/BackgroundVideo.tar.gz
+curl -sSLo BackgroundVideo.tar.gz https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/BackgroundVideo/BackgroundVideo.tar.gz
 tar -xzvf BackgroundVideo.tar.gz
 cd BackgroundVideo
 cp -rf -- * "$PTERO"
 cd "$PTERO"
 rm -r temp
-}
-
-#### Check if it is already installed ####
-
-verify_installation() {
-  if grep '<video autoPlay muted loop className="video">' "$PTERO/resources/scripts/components/App.tsx"; then
-      print_brake 61
-      echo -e "* ${red}This theme is already installed in your panel, aborting...${reset}"
-      print_brake 61
-      exit 1
-    else
-      dependencies
-      backup
-      download_files
-      detect_video
-      write_informations
-      production
-      bye
-  fi
 }
 
 #### Detect if the user has passed your video file in mp4 format ####
@@ -271,6 +251,25 @@ write_informations() {
 mkdir -p "$INFORMATIONS"
 # Write the filename to a file for the backup script to proceed later #
 echo "$VIDEO_FILE" >> "$INFORMATIONS/background.txt"
+}
+
+#### Check if it is already installed ####
+
+verify_installation() {
+  if grep '<video autoPlay muted loop className="video">' "$PTERO/resources/scripts/components/App.tsx"; then
+      print_brake 61
+      echo -e "* ${red}This theme is already installed in your panel, aborting...${reset}"
+      print_brake 61
+      exit 1
+    else
+      dependencies
+      backup
+      download_files
+      detect_video
+      write_informations
+      production
+      bye
+  fi
 }
 
 #### Check if another conflicting addon is installed ####

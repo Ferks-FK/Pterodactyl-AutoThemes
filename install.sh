@@ -12,7 +12,7 @@ set -e
 #
 ########################################################
 
-SCRIPT_VERSION="v1.2"
+SCRIPT_VERSION="v1.3"
 
 
 print_brake() {
@@ -102,11 +102,7 @@ bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes
 }
 
 BackgroundVideo() {
-bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/Big_Update/themes/version1.x/BackgroundVideo/build.sh)
-}
-
-backup() {
-bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/Big_Update/backup.sh)
+bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/BackgroundVideo/build.sh)
 }
 
 
@@ -119,7 +115,6 @@ while [ "$done" == false ]; do
     "Install Zing Theme (Only 1.6.6)"
     "Install Flanco Theme (Only 1.6.6)"
     "Install Background Video (Only 1.6.6)"
-    "bkp"
     
     
     "Cancel Installation"
@@ -133,7 +128,6 @@ while [ "$done" == false ]; do
     "ZingTheme"
     "FlancoTheme"
     "BackgroundVideo"
-    "backup"
     
     
     "cancel"

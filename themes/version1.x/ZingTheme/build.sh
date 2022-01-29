@@ -15,7 +15,7 @@ set -e
 
 #### Fixed Variables ####
 
-SCRIPT_VERSION="v1.1"
+SCRIPT_VERSION="v1.3"
 SUPPORT_LINK="https://discord.gg/buDBbSGJmQ"
 
 
@@ -106,35 +106,31 @@ update_variables
 compatibility() {
 echo
 print_brake 57
-echo -e "* ${GREEN}Checking if the theme is compatible with your panel...${reset}"
+echo -e "* ${GREEN}Checking if the addon is compatible with your panel...${reset}"
 print_brake 57
 echo
 sleep 2
-DIR="$PTERO/config/app.php"
-VERSION="1.6.6"
-if [ -f "$DIR" ]; then
-  CODE=$(cat "$DIR" | grep -n ^ | grep ^12: | cut -d: -f2 | cut -c18-23 | sed "s/'//g")
-    if [ "$VERSION" == "$CODE" ]; then
-        echo
-        print_brake 23
-        echo -e "* ${GREEN}Compatible Version!${reset}"
-        print_brake 23
-        echo
-      else
-        echo
-        print_brake 24
-        echo -e "* ${red}Incompatible Version!${reset}"
-        print_brake 24
-        echo
-        exit 1
-    fi
-  else
-    echo
-    print_brake 26
-    echo -e "* ${red}The file doesn't exist!${reset}"
-    print_brake 26
-    echo
-    exit 1
+if [ -f "$CONFIG_FILE" ]; then
+  if [ "$PANEL_VERSION" == "1.6.6" ]; then
+      echo
+      print_brake 23
+      echo -e "* ${GREEN}Compatible Version!${reset}"
+      print_brake 23
+      echo
+    elif [ "$PANEL_VERSION" == "1.7.0" ]; then
+      echo
+      print_brake 23
+      echo -e "* ${GREEN}Compatible Version!${reset}"
+      print_brake 23
+      echo
+    else
+      echo
+      print_brake 24
+      echo -e "* ${red}Incompatible Version!${reset}"
+      print_brake 24
+      echo
+      exit 1
+  fi
 fi
 }
 
