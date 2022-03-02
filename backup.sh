@@ -80,7 +80,7 @@ delete_files() {
 #### THEMES DRACULA, ENOLA AND TWILIGHT ####
 if [ -f "$DET" ]; then
   rm -r "$DET"
-  rm -r "$PTERO/public/themes/pterodactyl/css/admin.css"
+  rm -r "$PTERO/resources/scritps/user.css"
 fi
 #### THEMES DRACULA, ENOLA AND TWILIGHT ####
 
@@ -88,7 +88,6 @@ fi
 if [ -f "$ZING" ]; then
   rm -r "$ZING"
   rm -r "$PTERO/resources/scripts/components/server/files/FileViewer.tsx"
-  rm -r "$PTERO/resources/scripts/components/SidePanel.tsx"
 fi
 #### THEME ZINGTHEME ####
 

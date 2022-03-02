@@ -8,12 +8,20 @@ set -e
 #
 #         Created and maintained by Ferks-FK
 #
-#            Protected by GPL 3.0 License
+#            Protected by MIT License
 #
 ########################################################
 
+# Get the latest version before running the script #
+get_release() {
+curl --silent \
+  -H "Accept: application/vnd.github.v3+json" \
+  https://api.github.com/repos/Ferks-FK/Pterodactyl-AutoThemes/releases/latest |
+  grep '"tag_name":' |
+  sed -E 's/.*"([^"]+)".*/\1/'
+}
 
-SCRIPT_VERSION="v1.3"
+SCRIPT_VERSION="$(get_release)"
 
 
 print_brake() {
