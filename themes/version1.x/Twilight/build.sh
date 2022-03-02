@@ -1,4 +1,5 @@
 #!/bin/bash
+# shellcheck disable=SC2002
 # shellcheck source=/dev/null
 
 set -e
@@ -9,17 +10,24 @@ set -e
 #
 #         Created and maintained by Ferks-FK
 #
-#            Protected by GPL 3.0 License
+#            Protected by MIT License
 #
 ########################################################
 
-#### Fixed Variables ####
+# Get the latest version before running the script #
+get_release() {
+curl --silent \
+  -H "Accept: application/vnd.github.v3+json" \
+  https://api.github.com/repos/Ferks-FK/Pterodactyl-AutoThemes/releases/latest |
+  grep '"tag_name":' |
+  sed -E 's/.*"([^"]+)".*/\1/'
+}
 
-SCRIPT_VERSION="v1.3"
+# Fixed Variables #
+SCRIPT_VERSION="$(get_release)"
 SUPPORT_LINK="https://discord.gg/buDBbSGJmQ"
 
-#### Update Variables ####
-
+# Update Variables #
 update_variables() {
 CONFIG_FILE="$PTERO/config/app.php"
 PANEL_VERSION=$(cat "$CONFIG_FILE" | grep -n ^ | grep ^12: | cut -d: -f2 | cut -c18-23 | sed "s/'//g")
@@ -32,22 +40,35 @@ print_brake() {
   echo ""
 }
 
+print_warning() {
+  echo ""
+  echo -e "* ${YELLOW}WARNING${RESET}: $1"
+  echo ""
+}
+
+print_error() {
+  echo ""
+  echo -e "* ${RED}ERROR${RESET}: $1"
+  echo ""
+}
+
+print() {
+  echo ""
+  echo -e "* ${GREEN}$1${RESET}"
+  echo ""
+}
 
 hyperlink() {
   echo -e "\e]8;;${1}\a${1}\e]8;;\a"
 }
 
-
-#### Colors ####
-
+# Colors #
 GREEN="\e[0;92m"
 YELLOW="\033[1;33m"
-red='\033[0;31m'
-reset="\e[0m"
+RED='\033[0;31m'
+RESET="\e[0m"
 
-
-#### OS check ####
-
+# OS check #
 check_distro() {
   if [ -f /etc/os-release ]; then
     . /etc/os-release
@@ -78,14 +99,10 @@ check_distro() {
   OS_VER_MAJOR=$(echo "$OS_VER" | cut -d. -f1)
 }
 
-#### Find where pterodactyl is installed ####
-
+# Find where pterodactyl is installed #
 find_pterodactyl() {
-echo
-print_brake 47
-echo -e "* ${GREEN}Looking for your pterodactyl installation...${reset}"
-print_brake 47
-echo
+print "Looking for your pterodactyl installation..."
+
 sleep 2
 if [ -d "/var/www/pterodactyl" ]; then
     PTERO_INSTALL=true
@@ -103,48 +120,23 @@ fi
 update_variables
 }
 
-#### Verify Compatibility ####
-
+# Verify Compatibility #
 compatibility() {
-echo
-print_brake 57
-echo -e "* ${GREEN}Checking if the addon is compatible with your panel...${reset}"
-print_brake 57
-echo
+print "Checking if the addon is compatible with your panel..."
+
 sleep 2
-if [ -f "$CONFIG_FILE" ]; then
-  if [ "$PANEL_VERSION" == "1.6.6" ]; then
-      echo
-      print_brake 23
-      echo -e "* ${GREEN}Compatible Version!${reset}"
-      print_brake 23
-      echo
-    elif [ "$PANEL_VERSION" == "1.7.0" ]; then
-      echo
-      print_brake 23
-      echo -e "* ${GREEN}Compatible Version!${reset}"
-      print_brake 23
-      echo
-    else
-      echo
-      print_brake 24
-      echo -e "* ${red}Incompatible Version!${reset}"
-      print_brake 24
-      echo
-      exit 1
-  fi
+if [ "$PANEL_VERSION" == "1.6.6" ] || [ "$PANEL_VERSION" == "1.7.0" ]; then
+    print "Compatible Version!"
+  else
+    print "Incompatible Version!"
+    exit 1
 fi
 }
 
-
-#### Install Dependencies ####
-
+# Install Dependencies #
 dependencies() {
-echo
-print_brake 30
-echo -e "* ${GREEN}Installing dependencies...${reset}"
-print_brake 30
-echo
+print "Installing dependencies..."
+
 case "$OS" in
 debian | ubuntu)
 curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash - && apt-get install -y nodejs
@@ -156,20 +148,12 @@ centos)
 esac
 }
 
-
-#### Panel Backup ####
-
+# Panel Backup #
 backup() {
-echo
-print_brake 32
-echo -e "* ${GREEN}Performing security backup...${reset}"
-print_brake 32
-  if [ -d "$PTERO/PanelBackup[Auto-Themes]" ]; then
-    echo
-    print_brake 45
-    echo -e "* ${GREEN}There is already a backup, skipping step...${reset}"
-    print_brake 45
-    echo
+print "Performing security backup..."
+
+if [ -d "$PTERO/PanelBackup[Auto-Themes]" ]; then
+    print "There is already a backup, skipping step..."
   else
     cd "$PTERO"
     if [ -d "$PTERO/node_modules" ]; then
@@ -184,19 +168,14 @@ print_brake 32
 fi
 }
 
-
-#### Download Files ####
-
+# Download Files #
 download_files() {
-echo
-print_brake 25
-echo -e "* ${GREEN}Downloading files...${reset}"
-print_brake 25
-echo
+print "Downloading files..."
+
 cd "$PTERO"
 mkdir -p temp
 cd temp
-curl -sSLo Twilight.tar.gz https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/${SCRIPT_VERSION}/themes/version1.x/Twilight/Twilight.tar.gz
+curl -sSLo Twilight.tar.gz https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/"${SCRIPT_VERSION}"/themes/version1.x/Twilight/Twilight.tar.gz
 tar -xzvf Twilight.tar.gz
 cd Twilight
 cp -rf -- * "$PTERO"
@@ -204,23 +183,17 @@ cd "$PTERO"
 rm -r temp
 }
 
-
-#### Configure ####
-
+# Configure #
 configure() {
 sed -i "5a\import './user.css';" "$PTERO/resources/scripts/index.tsx"
 sed -i "32a\{!! Theme::css('css/admin.css?t={cache-version}') !!}" "$PTERO/resources/views/layouts/admin.blade.php"
 }
 
-
-#### Panel Production ####
-
+# Panel Production #
 production() {
-echo
-print_brake 25
-echo -e "* ${GREEN}Producing panel...${reset}"
-print_brake 25
-echo
+print "Producing panel..."
+print_warning "This process takes a few minutes, please do not cancel it."
+
 if [ -d "$PTERO/node_modules" ]; then
     cd "$PTERO"
     yarn add @emotion/react
@@ -234,28 +207,23 @@ if [ -d "$PTERO/node_modules" ]; then
 fi
 }
 
-
 bye() {
 print_brake 50
 echo
 echo -e "${GREEN}* The theme ${YELLOW}Twilight${GREEN} was successfully installed."
 echo -e "* A security backup of your panel has been created."
 echo -e "* Thank you for using this script."
-echo -e "* Support group: ${YELLOW}$(hyperlink "$SUPPORT_LINK")${reset}"
+echo -e "* Support group: ${YELLOW}$(hyperlink "$SUPPORT_LINK")${RESET}"
 echo
 print_brake 50
 }
 
-
-#### Exec Script ####
+# Exec Script #
 check_distro
 find_pterodactyl
 if [ "$PTERO_INSTALL" == true ]; then
-    echo
-    print_brake 66
-    echo -e "* ${GREEN}Installation of the panel found, continuing the installation...${reset}"
-    print_brake 66
-    echo
+    print "Installation of the panel found, continuing the installation..."
+
     compatibility
     dependencies
     backup
@@ -264,10 +232,23 @@ if [ "$PTERO_INSTALL" == true ]; then
     production
     bye
   elif [ "$PTERO_INSTALL" == false ]; then
-    echo
-    print_brake 66
-    echo -e "* ${red}The installation of your panel could not be located, aborting...${reset}"
-    print_brake 66
-    echo
-    exit 1
+    print_warning "The installation of your panel could not be located."
+    echo -e "* ${GREEN}EXAMPLE${RESET}: ${YELLOW}/var/www/mypanel${RESET}"
+    echo -ne "* Enter the pterodactyl installation directory manually: "
+    read -r MANUAL_DIR
+    if [ -d "$MANUAL_DIR" ]; then
+        print "Directory has been found!"
+        PTERO="$MANUAL_DIR"
+        update_variables
+        compatibility
+        dependencies
+        backup
+        download_files
+        configure
+        production
+        bye
+      else
+        print_error "The directory you entered does not exist."
+        find_pterodactyl
+    fi
 fi
