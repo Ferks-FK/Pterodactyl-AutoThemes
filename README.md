@@ -33,7 +33,7 @@ bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes
 
 **Example:** ```# bash <(curl -s...```
 
-<h1 align="center">Themes for the 1.6.6 panel</h1>
+<h1 align="center">Themes for the 1.X panel</h1>
 
 <h1 align="center">Dracula</h1>
 
