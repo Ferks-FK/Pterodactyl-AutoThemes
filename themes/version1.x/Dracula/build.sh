@@ -1,5 +1,4 @@
 #!/bin/bash
-# shellcheck disable=SC2002
 # shellcheck source=/dev/null
 
 set -e
@@ -30,9 +29,10 @@ SUPPORT_LINK="https://discord.gg/buDBbSGJmQ"
 # Update Variables #
 update_variables() {
 CONFIG_FILE="$PTERO/config/app.php"
-PANEL_VERSION=$(cat "$CONFIG_FILE" | grep -n ^ | grep ^12: | cut -d: -f2 | cut -c18-23 | sed "s/'//g")
+PANEL_VERSION="$(grep "'version'" "$CONFIG_FILE" | cut -c18-25 | sed "s/[',]//g")"
 }
 
+# Visual Functions #
 print_brake() {
   for ((n = 0; n < $1; n++)); do
     echo -n "#"
@@ -62,7 +62,6 @@ hyperlink() {
   echo -e "\e]8;;${1}\a${1}\e]8;;\a"
 }
 
-# Colors #
 GREEN="\e[0;92m"
 YELLOW="\033[1;33m"
 RED='\033[0;31m'
@@ -140,11 +139,11 @@ print "Installing dependencies..."
 
 case "$OS" in
 debian | ubuntu)
-curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash - && apt-get install -y nodejs
+curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - && apt-get install -y nodejs
 ;;
 centos)
-[ "$OS_VER_MAJOR" == "7" ] && curl -sL https://rpm.nodesource.com/setup_16.x | sudo -E bash - && sudo yum install -y nodejs yarn
-[ "$OS_VER_MAJOR" == "8" ] && curl -sL https://rpm.nodesource.com/setup_16.x | sudo -E bash - && sudo dnf install -y nodejs
+[ "$OS_VER_MAJOR" == "7" ] && curl -sL https://rpm.nodesource.com/setup_14.x | sudo -E bash - && sudo yum install -y nodejs yarn
+[ "$OS_VER_MAJOR" == "8" ] && curl -sL https://rpm.nodesource.com/setup_14.x | sudo -E bash - && sudo dnf install -y nodejs
 ;;
 esac
 }
