@@ -295,6 +295,7 @@ if [ "$PTERO_INSTALL" == true ]; then
     if [ -d "$MANUAL_DIR" ]; then
         print "Directory has been found!"
         PTERO="$MANUAL_DIR"
+        echo "$MANUAL_DIR" >> "$INFORMATIONS/custom_directory.txt"
         update_variables
         compatibility
         check_conflict

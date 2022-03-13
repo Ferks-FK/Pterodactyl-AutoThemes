@@ -25,6 +25,7 @@ curl --silent \
 # Fixed Variables #
 SCRIPT_VERSION="$(get_release)"
 SUPPORT_LINK="https://discord.gg/buDBbSGJmQ"
+INFORMATIONS="/var/log/Pterodactyl-AutoThemes-informations"
 
 # Update Variables #
 update_variables() {
@@ -242,6 +243,7 @@ if [ "$PTERO_INSTALL" == true ]; then
     if [ -d "$MANUAL_DIR" ]; then
         print "Directory has been found!"
         PTERO="$MANUAL_DIR"
+        echo "$MANUAL_DIR" >> "$INFORMATIONS/custom_directory.txt"
         update_variables
         compatibility
         verify_installation
