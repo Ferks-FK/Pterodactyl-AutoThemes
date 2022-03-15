@@ -57,6 +57,7 @@ if [ -z "$SCRIPT_VERSION" ]; then
   error "Could not get the version of the script using GitHub."
   echo "* Please check on the site below if the 'API Requests' are as normal status."
   echo -e "${YELLOW}$(hyperlink "$GITHUB_STATUS_URL")${RESET}"
+  exit 1
 fi
 
 # Check Curl #
