@@ -25,7 +25,6 @@ curl --silent \
 # Fixed Variables #
 SCRIPT_VERSION="$(get_release)"
 SUPPORT_LINK="https://discord.gg/buDBbSGJmQ"
-INFORMATIONS="/var/log/Pterodactyl-AutoThemes-informations"
 
 # Update Variables #
 update_variables() {
@@ -128,7 +127,7 @@ sleep 2
 if [ "$PANEL_VERSION" == "1.6.6" ] || [ "$PANEL_VERSION" == "1.7.0" ]; then
     print "Compatible Version!"
   else
-    print "Incompatible Version!"
+    print_error "Incompatible Version!"
     exit 1
 fi
 }
@@ -177,16 +176,10 @@ download_files() {
 print "Downloading files..."
 
 mkdir -p $PTERO/temp
-curl -sSLo $PTERO/temp/Twilight.tar.gz https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/"${SCRIPT_VERSION}"/themes/version1.x/Twilight/Twilight.tar.gz
-tar -xzvf $PTERO/temp/Twilight.tar.gz -C $PTERO/temp
-cp -rf -- $PTERO/temp/Twilight/* $PTERO
+curl -sSLo $PTERO/temp/AnimatedGraphics.tar.gz https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/"${SCRIPT_VERSION}"/themes/version1.x/AnimatedGraphics/AnimatedGraphics.tar.gz
+tar -xzvf $PTERO/temp/AnimatedGraphics.tar.gz -C $PTERO/temp
+cp -rf -- $PTERO/temp/AnimatedGraphics/* $PTERO
 rm -rf $PTERO/temp
-}
-
-# Configure #
-configure() {
-sed -i "5a\import './user.css';" "$PTERO/resources/scripts/index.tsx"
-sed -i "32a\{!! Theme::css('css/admin.css?t={cache-version}') !!}" "$PTERO/resources/views/layouts/admin.blade.php"
 }
 
 # Panel Production #
@@ -195,12 +188,10 @@ print "Producing panel..."
 print_warning "This process takes a few minutes, please do not cancel it."
 
 if [ -d "$PTERO/node_modules" ]; then
-    yarn --cwd $PTERO add @emotion/react
     yarn --cwd $PTERO build:production
   else
     npm i -g yarn
     yarn --cwd $PTERO install
-    yarn --cwd $PTERO add @emotion/react
     yarn --cwd $PTERO build:production
 fi
 }
@@ -208,7 +199,7 @@ fi
 bye() {
 print_brake 50
 echo
-echo -e "${GREEN}* The theme ${YELLOW}Twilight${GREEN} was successfully installed."
+echo -e "${GREEN}* The theme ${YELLOW}Animated Graphics${GREEN} was successfully installed."
 echo -e "* A security backup of your panel has been created."
 echo -e "* Thank you for using this script."
 echo -e "* Support group: ${YELLOW}$(hyperlink "$SUPPORT_LINK")${RESET}"
@@ -226,7 +217,6 @@ if [ "$PTERO_INSTALL" == true ]; then
     dependencies
     backup
     download_files
-    configure
     production
     bye
   elif [ "$PTERO_INSTALL" == false ]; then
@@ -243,7 +233,6 @@ if [ "$PTERO_INSTALL" == true ]; then
         dependencies
         backup
         download_files
-        configure
         production
         bye
       else

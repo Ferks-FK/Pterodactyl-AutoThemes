@@ -138,33 +138,37 @@ fi
 dependencies() {
 print "Installing dependencies..."
 
-case "$OS" in
-debian | ubuntu)
-curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - && apt-get install -y nodejs
-;;
-centos)
-[ "$OS_VER_MAJOR" == "7" ] && curl -sL https://rpm.nodesource.com/setup_14.x | sudo -E bash - && sudo yum install -y nodejs yarn
-[ "$OS_VER_MAJOR" == "8" ] && curl -sL https://rpm.nodesource.com/setup_14.x | sudo -E bash - && sudo dnf install -y nodejs
-;;
-esac
+if node -v &>/dev/null; then
+    print "The dependencies are already installed, skipping this step..."
+  else
+    case "$OS" in
+      debian | ubuntu)
+        curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - && apt-get install -y nodejs
+      ;;
+      centos)
+        [ "$OS_VER_MAJOR" == "7" ] && curl -sL https://rpm.nodesource.com/setup_14.x | sudo -E bash - && sudo yum install -y nodejs yarn
+        [ "$OS_VER_MAJOR" == "8" ] && curl -sL https://rpm.nodesource.com/setup_14.x | sudo -E bash - && sudo dnf install -y nodejs
+      ;;
+    esac
+fi
 }
 
 # Panel Backup #
 backup() {
 print "Performing security backup..."
 
-if [ -d "$PTERO/PanelBackup[Auto-Themes]" ]; then
+if [ -d "$PTERO/PanelBackup[Auto-Addons]" ]; then
     print "There is already a backup, skipping step..."
   else
-    cd "$PTERO"
+    cd $PTERO
     if [ -d "$PTERO/node_modules" ]; then
-        tar -czvf "PanelBackup[Auto-Themes].tar.gz" --exclude "node_modules" -- * .env
-        mkdir -p "PanelBackup[Auto-Themes]"
-        mv "PanelBackup[Auto-Themes].tar.gz" "PanelBackup[Auto-Themes]"
+        tar -czvf "PanelBackup[Auto-Addons].tar.gz" --exclude "node_modules" -- * .env
+        mkdir -p "$PTERO/PanelBackup[Auto-Addons]"
+        mv "$PTERO/PanelBackup[Auto-Addons].tar.gz" "$PTERO/PanelBackup[Auto-Addons]"
       else
-        tar -czvf "PanelBackup[Auto-Themes].tar.gz" -- * .env
-        mkdir -p "PanelBackup[Auto-Themes]"
-        mv "PanelBackup[Auto-Themes].tar.gz" "PanelBackup[Auto-Themes]"
+        tar -czvf "PanelBackup[Auto-Addons].tar.gz" -- * .env
+        mkdir -p "$PTERO/PanelBackup[Auto-Addons]"
+        mv "$PTERO/PanelBackup[Auto-Addons].tar.gz" "$PTERO/PanelBackup[Auto-Addons]"
     fi
 fi
 }
@@ -173,15 +177,11 @@ fi
 download_files() {
 print "Downloading files..."
 
-cd "$PTERO"
-mkdir -p temp
-cd temp
-curl -sSLo Dracula.tar.gz https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/"${SCRIPT_VERSION}"/themes/version1.x/Dracula/Dracula.tar.gz
-tar -xzvf Dracula.tar.gz
-cd Dracula
-cp -rf -- * "$PTERO"
-cd "$PTERO"
-rm -r temp
+mkdir -p $PTERO/temp
+curl -sSLo $PTERO/temp/Dracula.tar.gz https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/"${SCRIPT_VERSION}"/themes/version1.x/Dracula/Dracula.tar.gz
+tar -xzvf $PTERO/temp/Dracula.tar.gz -C $PTERO/temp
+cp -rf -- $PTERO/temp/Dracula/* $PTERO
+rm -rf $PTERO/temp
 }
 
 # Configure #
@@ -196,15 +196,13 @@ print "Producing panel..."
 print_warning "This process takes a few minutes, please do not cancel it."
 
 if [ -d "$PTERO/node_modules" ]; then
-    cd "$PTERO"
-    yarn add @emotion/react
-    yarn build:production
+    yarn --cwd $PTERO add @emotion/react
+    yarn --cwd $PTERO build:production
   else
     npm i -g yarn
-    cd "$PTERO"
-    yarn install
-    yarn add @emotion/react
-    yarn build:production
+    yarn --cwd $PTERO install
+    yarn --cwd $PTERO add @emotion/react
+    yarn --cwd $PTERO build:production
 fi
 }
 

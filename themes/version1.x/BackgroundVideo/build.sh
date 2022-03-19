@@ -139,33 +139,37 @@ fi
 dependencies() {
 print "Installing dependencies..."
 
-case "$OS" in
-debian | ubuntu)
-curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - && apt-get install -y nodejs
-;;
-centos)
-[ "$OS_VER_MAJOR" == "7" ] && curl -sL https://rpm.nodesource.com/setup_14.x | sudo -E bash - && sudo yum install -y nodejs yarn
-[ "$OS_VER_MAJOR" == "8" ] && curl -sL https://rpm.nodesource.com/setup_14.x | sudo -E bash - && sudo dnf install -y nodejs
-;;
-esac
+if node -v &>/dev/null; then
+    print "The dependencies are already installed, skipping this step..."
+  else
+    case "$OS" in
+      debian | ubuntu)
+        curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - && apt-get install -y nodejs
+      ;;
+      centos)
+        [ "$OS_VER_MAJOR" == "7" ] && curl -sL https://rpm.nodesource.com/setup_14.x | sudo -E bash - && sudo yum install -y nodejs yarn
+        [ "$OS_VER_MAJOR" == "8" ] && curl -sL https://rpm.nodesource.com/setup_14.x | sudo -E bash - && sudo dnf install -y nodejs
+      ;;
+    esac
+fi
 }
 
 # Panel Backup #
 backup() {
 print "Performing security backup..."
 
-if [ -d "$PTERO/PanelBackup[Auto-Themes]" ]; then
+if [ -d "$PTERO/PanelBackup[Auto-Addons]" ]; then
     print "There is already a backup, skipping step..."
   else
-    cd "$PTERO"
+    cd $PTERO
     if [ -d "$PTERO/node_modules" ]; then
-        tar -czvf "PanelBackup[Auto-Themes].tar.gz" --exclude "node_modules" -- * .env
-        mkdir -p "PanelBackup[Auto-Themes]"
-        mv "PanelBackup[Auto-Themes].tar.gz" "PanelBackup[Auto-Themes]"
+        tar -czvf "PanelBackup[Auto-Addons].tar.gz" --exclude "node_modules" -- * .env
+        mkdir -p "$PTERO/PanelBackup[Auto-Addons]"
+        mv "$PTERO/PanelBackup[Auto-Addons].tar.gz" "$PTERO/PanelBackup[Auto-Addons]"
       else
-        tar -czvf "PanelBackup[Auto-Themes].tar.gz" -- * .env
-        mkdir -p "PanelBackup[Auto-Themes]"
-        mv "PanelBackup[Auto-Themes].tar.gz" "PanelBackup[Auto-Themes]"
+        tar -czvf "PanelBackup[Auto-Addons].tar.gz" -- * .env
+        mkdir -p "$PTERO/PanelBackup[Auto-Addons]"
+        mv "$PTERO/PanelBackup[Auto-Addons].tar.gz" "$PTERO/PanelBackup[Auto-Addons]"
     fi
 fi
 }
@@ -174,15 +178,11 @@ fi
 download_files() {
 print "Downloading files..."
 
-cd "$PTERO"
-mkdir -p temp
-cd temp
-curl -sSLo BackgroundVideo.tar.gz https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/"${SCRIPT_VERSION}"/themes/version1.x/BackgroundVideo/BackgroundVideo.tar.gz
-tar -xzvf BackgroundVideo.tar.gz
-cd BackgroundVideo
-cp -rf -- * "$PTERO"
-cd "$PTERO"
-rm -r temp
+mkdir -p $PTERO/temp
+curl -sSLo $PTERO/temp/BackgroundVideo.tar.gz https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes/"${SCRIPT_VERSION}"/themes/version1.x/BackgroundVideo/BackgroundVideo.tar.gz
+tar -xzvf $PTERO/temp/BackgroundVideo.tar.gz -C $PTERO/temp
+cp -rf -- $PTERO/temp/BackgroundVideo/* $PTERO
+rm -rf $PTERO/temp
 }
 
 # Detect if the user has passed your video file in mp4 format #
@@ -195,12 +195,12 @@ print_warning "Your video can have any name, but must be in ${GREEN}.mp4${RESET}
 echo -n -e "* Once you successfully upload the video, press ${GREEN}ENTER${RESET} for the script to continue."
 read -r
 while [ -z "$VIDEO_FILE" ]; do
-    update_variables
-    echo
-    print_warning "Unable to locate your video file, please check that it is in the correct directory."
-    echo -e "* New check in 5 seconds..."
-    sleep 5
-    find . -iname '*.mp4' | tail -1 &>/dev/null
+  update_variables
+  echo
+  print_warning "Unable to locate your video file, please check that it is in the correct directory."
+  echo -e "* New check in 5 seconds..."
+  sleep 5
+  find . -iname '*.mp4' | tail -1 &>/dev/null
 done
 echo -n -e "* The file ${GREEN}$VIDEO_FILE${RESET} have been found, is that correct? (y/N): "
 read -r CHECK_VIDEO
@@ -224,18 +224,18 @@ echo "$VIDEO_FILE" >> "$INFORMATIONS/background.txt"
 
 # Check if it is already installed #
 verify_installation() {
-  if grep '<video autoPlay muted loop className="video">' "$PTERO/resources/scripts/components/App.tsx" &>/dev/null; then
-      print_error "This theme is already installed in your panel, aborting..."
-      exit 1
-    else
-      dependencies
-      backup
-      download_files
-      detect_video
-      write_informations
-      production
-      bye
-  fi
+if grep '<video autoPlay muted loop className="video">' "$PTERO/resources/scripts/components/App.tsx" &>/dev/null; then
+    print_error "This theme is already installed in your panel, aborting..."
+    exit 1
+  else
+    dependencies
+    backup
+    download_files
+    detect_video
+    write_informations
+    production
+    bye
+fi
 }
 
 # Check if another conflicting addon is installed #
@@ -255,15 +255,14 @@ fi
 # Panel Production #
 production() {
 print "Producing panel..."
+print_warning "This process takes a few minutes, please do not cancel it."
 
 if [ -d "$PTERO/node_modules" ]; then
-    cd "$PTERO"
-    yarn build:production
+    yarn --cwd $PTERO build:production
   else
     npm i -g yarn
-    cd "$PTERO"
-    yarn install
-    yarn build:production
+    yarn --cwd $PTERO install
+    yarn --cwd $PTERO build:production
 fi
 }
 

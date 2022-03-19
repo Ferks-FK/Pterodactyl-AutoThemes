@@ -22,9 +22,7 @@ update_variables() {
 INFORMATIONS="/var/log/Pterodactyl-AutoThemes-informations"
 DET="$PTERO/public/themes/pterodactyl/css/admin.css"
 ZING="$PTERO/resources/scripts/components/SidePanel.tsx"
-if [ -f "${INFORMATIONS}/background.txt" ]; then
-  BACKGROUND="$(cat "${INFORMATIONS}/background.txt")"
-fi
+if [ -f "${INFORMATIONS}/background.txt" ]; then BACKGROUND="$(cat "${INFORMATIONS}/background.txt")"; fi
 }
 
 print_brake() {
@@ -102,7 +100,7 @@ fi
 
 #### BACKGROUND VIDEO ####
 if [ -f "$PTERO/public/$BACKGROUND" ]; then
-  cd "$PTERO/public" && rm -r "$BACKGROUND"
+  rm -rf "$PTERO/public/$BACKGROUND"
   rm -rf "$PTERO/resources/scripts/user.css"
   rm -rf "$INFORMATIONS"
 fi
@@ -116,8 +114,8 @@ print "Checking for a backup..."
 
 if [ -d "$PTERO/PanelBackup[Auto-Themes]" ]; then
     cd "$PTERO/PanelBackup[Auto-Themes]"
-    tar -xzvf "PanelBackup[Auto-Themes].tar.gz"
-    rm -R "PanelBackup[Auto-Themes].tar.gz"
+    tar -xzvf "$PTERO/PanelBackup[Auto-Themes]/PanelBackup[Auto-Themes].tar.gz"
+    rm -rf "$PTERO/PanelBackup[Auto-Themes]/PanelBackup[Auto-Themes].tar.gz"
     cp -r -- * .env "$PTERO"
     rm -rf "$PTERO/PanelBackup[Auto-Themes]"
   else
