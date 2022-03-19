@@ -155,18 +155,18 @@ fi
 backup() {
 print "Performing security backup..."
 
-if [ -d "$PTERO/PanelBackup[Auto-Addons]" ]; then
+if [ -d "$PTERO/PanelBackup[Auto-Themes]" ]; then
     print "There is already a backup, skipping step..."
   else
     cd $PTERO
     if [ -d "$PTERO/node_modules" ]; then
-        tar -czvf "PanelBackup[Auto-Addons].tar.gz" --exclude "node_modules" -- * .env
-        mkdir -p "$PTERO/PanelBackup[Auto-Addons]"
-        mv "$PTERO/PanelBackup[Auto-Addons].tar.gz" "$PTERO/PanelBackup[Auto-Addons]"
+        tar -czvf "PanelBackup[Auto-Themes].tar.gz" --exclude "node_modules" -- * .env
+        mkdir -p "$PTERO/PanelBackup[Auto-Themes]"
+        mv "$PTERO/PanelBackup[Auto-Themes].tar.gz" "$PTERO/PanelBackup[Auto-Themes]"
       else
-        tar -czvf "PanelBackup[Auto-Addons].tar.gz" -- * .env
-        mkdir -p "$PTERO/PanelBackup[Auto-Addons]"
-        mv "$PTERO/PanelBackup[Auto-Addons].tar.gz" "$PTERO/PanelBackup[Auto-Addons]"
+        tar -czvf "PanelBackup[Auto-Themes].tar.gz" -- * .env
+        mkdir -p "$PTERO/PanelBackup[Auto-Themes]"
+        mv "$PTERO/PanelBackup[Auto-Themes].tar.gz" "$PTERO/PanelBackup[Auto-Themes]"
     fi
 fi
 }
