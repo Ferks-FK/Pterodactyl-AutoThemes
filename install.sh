@@ -3,7 +3,7 @@
 set -e
 
 ########################################################
-# 
+#
 #         Pterodactyl-AutoThemes Installation
 #
 #         Created and maintained by Ferks-FK
