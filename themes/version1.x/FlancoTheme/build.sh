@@ -151,7 +151,6 @@ if node -v &>/dev/null; then
 fi
 }
 
-
 # Panel Backup #
 backup() {
 print "Performing security backup..."
