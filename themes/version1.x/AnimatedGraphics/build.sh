@@ -28,6 +28,7 @@ SUPPORT_LINK="https://discord.gg/buDBbSGJmQ"
 
 # Update Variables #
 update_variables() {
+BIGGER_CONSOLE="$PTERO/resources/scripts/components/server/StatGraphs.tsx"
 CONFIG_FILE="$PTERO/config/app.php"
 PANEL_VERSION="$(grep "'version'" "$CONFIG_FILE" | cut -c18-25 | sed "s/[',]//g")"
 }
@@ -182,6 +183,17 @@ cp -rf -- $PTERO/temp/AnimatedGraphics/* $PTERO
 rm -rf $PTERO/temp
 }
 
+# Check if another conflicting addon is installed #
+check_conflict() {
+print "Checking if a similar/conflicting addon is already installed..."
+
+sleep 2
+if grep -q "Installed by Auto-Addons" "$BIGGER_CONSOLE"; then
+  print_warning "The theme ${YELLOW}Bigger Console${RESET} is already installed, aborting..."
+  exit 1
+fi
+}
+
 # Panel Production #
 production() {
 print "Producing panel..."
@@ -214,6 +226,7 @@ if [ "$PTERO_INSTALL" == true ]; then
     print "Installation of the panel found, continuing the installation..."
 
     compatibility
+    check_conflict
     dependencies
     backup
     download_files
@@ -230,6 +243,7 @@ if [ "$PTERO_INSTALL" == true ]; then
         echo "$MANUAL_DIR" >> "$INFORMATIONS/custom_directory.txt"
         update_variables
         compatibility
+        check_conflict
         dependencies
         backup
         download_files
