@@ -9,7 +9,7 @@
 This is a theme installation script for the [Pterodactyl Panel](https://github.com/pterodactyl/panel).<br>
 The script installs themes that are compatible with their respective panel versions.
 
-![1](https://user-images.githubusercontent.com/69549678/150704252-85613f25-5a7e-437d-ae96-de1864ba2196.PNG)
+![1](https://user-images.githubusercontent.com/69549678/159162975-625ce6f1-c42e-42c3-83f7-e8f0ab75a984.png)
 
 
 <h1 align="center">Support</h1>
@@ -78,6 +78,16 @@ bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes
 
 ### User:
 ![2](https://user-images.githubusercontent.com/69549678/137675018-ca602ba4-de61-4b48-bb2f-8432c3ffc7ad.png)
+
+<h1 align="center">Animated Graphics</h1>
+
+*Download the original addon: [Animated Graphics](https://pterodactylmarket.com/resource/424)*
+
+### Before:
+https://user-images.githubusercontent.com/69549678/159163234-1affd4cd-96ce-4940-beb0-7185074d2a4b.mp4
+
+### After:
+https://user-images.githubusercontent.com/69549678/159163259-d5a45f1d-295c-4922-995d-56579f04e587.mp4
 
 
 <h1 align="center">Development</h1>
