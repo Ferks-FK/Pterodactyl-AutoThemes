@@ -80,6 +80,7 @@ bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes
 ![2](https://user-images.githubusercontent.com/69549678/137675018-ca602ba4-de61-4b48-bb2f-8432c3ffc7ad.png)
 
 <h1 align="center">Animated Graphics</h1>
+
 *Download the original addon: [Animated Graphics](https://pterodactylmarket.com/resource/424)*
 
 ### Before:
