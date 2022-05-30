@@ -136,13 +136,13 @@ while [ "$done" == false ]; do
   PENULTIMATE_VERSION="${array[1]}"
   
   options=(
-    "Restore Panel Backup (Only if you have an installation problem.)"
+    "Restore Panel Backup (Restore your panel if you have problems or want to remove themes)"
     "Install Dracula (Only $PENULTIMATE_VERSION and $LATEST_VERSION)"
     "Install Enola (Only $PENULTIMATE_VERSION and $LATEST_VERSION)"
     "Install Twilight (Only $PENULTIMATE_VERSION and $LATEST_VERSION)"
     "Install Zing Theme (Only 1.6.6 and 1.7.0)"
     "Install Flanco Theme (Only 1.6.6 and 1.7.0)"
-    "Install Background Video (Only 1.6.6 and 1.7.0)"
+    "Install Background Video (Only 1.7.0 and 1.8.1)"
     "Install Animated Graphics (Only 1.6.6 and 1.7.0)"
     
     
