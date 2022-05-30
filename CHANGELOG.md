@@ -2,6 +2,12 @@
 
 This file is a running track of new features and fixes to each version of the panel released starting with `v1.6.3`.
 
+<h2>v1.6.5</h2>
+
+<h3>Changed</h3>
+
+- Updated `Flanco Theme` for the new version of the panel (Thanks for (MonkeySaint)[https://github.com/MonkeySaint/Flanco-Theme]).
+
 <h2>v1.6.4</h2>
 
 <h3>Changed</h3>
