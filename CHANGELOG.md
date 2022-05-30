@@ -11,3 +11,7 @@ This file is a running track of new features and fixes to each version of the pa
 <h3>Changed</h3>
 
 - The `BackgroundVideo` theme have been updated to the new panel version `v1.8.1`.
+
+<h3>Note</h3>
+
+- The rest of the themes need to be updated by their original authors.
