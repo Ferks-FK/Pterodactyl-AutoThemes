@@ -120,19 +120,32 @@ fi
 update_variables
 }
 
+# Get the latest and penultimate version of the pterodactyl #
+get_branch() {
+  curl --silent \
+    -H "Accept: application/vnd.github.v3+json" \
+    https://api.github.com/repos/pterodactyl/panel/releases |
+    grep '"tag_name":' |
+    sed -E 's/.*"([^"]+)".*/\1/' |
+    sed "s/[v]//g"
+}
+
 # Verify Compatibility #
 compatibility() {
 print "Checking if the addon is compatible with your panel..."
 
+CREATE_ARRAY=$'\n' read -d "\034" -r -a array <<<"$(get_branch)\034" # https://unix.stackexchange.com/a/628543
+LATEST_VERSION="${array[0]}"
+PENULTIMATE_VERSION="${array[1]}"
+
 sleep 2
-if [ "$PANEL_VERSION" == "1.6.6" ] || [ "$PANEL_VERSION" == "1.7.0" ]; then
+if [ "$PANEL_VERSION" == "$PENULTIMATE_VERSION" ] || [ "$PANEL_VERSION" == "$LATEST_VERSION" ]; then
     print "Compatible Version!"
   else
     print_error "Incompatible Version!"
     exit 1
 fi
 }
-
 
 # Install Dependencies #
 dependencies() {
