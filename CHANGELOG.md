@@ -6,7 +6,9 @@ This file is a running track of new features and fixes to each version of the pa
 
 <h3>Changed</h3>
 
-- Updated `Flanco Theme` for the new version of the panel (Thanks for [MonkeySaint](https://github.com/MonkeySaint/Flanco-Theme)).
+- Updated `Flanco Theme` for the `1.8.1` version of the panel (Thanks for [MonkeySaint](https://github.com/MonkeySaint/Flanco-Theme)).
+
+- The `Dracula`, `Enola` and `Twilight` themes have been made obsolete in the new `1.9.0` version of the panel, so they only work for `1.7.0` and `1.8.1`.
 
 <h2>v1.6.4</h2>
 
