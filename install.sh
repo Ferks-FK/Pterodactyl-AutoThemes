@@ -123,13 +123,13 @@ bash <(curl -s https://raw.githubusercontent.com/Ferks-FK/Pterodactyl-AutoThemes
 while [ "$done" == false ]; do
   options=(
     "Restore Panel Backup (Restore your panel if you have problems or want to remove themes)"
-    "Install Dracula (Only 1.7.0 and 1.8.1)"
-    "Install Enola (Only 1.7.0 and 1.8.1)"
-    "Install Twilight (Only 1.7.0 and 1.8.1)"
-    "Install Zing Theme (Only 1.6.6 and 1.7.0)"
-    "Install Flanco Theme (Only 1.6.6 and 1.7.0)"
-    "Install Background Video (Only 1.7.0 and 1.8.1)"
-    "Install Animated Graphics (Only 1.6.6 and 1.7.0)"
+    "Install Dracula (Only 1.7.0 and 1.9.0)"
+    "Install Enola (Only 1.7.0 and 1.9.0)"
+    "Install Twilight (Only 1.7.0 and 1.9.0)"
+    "Install Zing Theme (Only 1.6.6 and 1.9.0)"
+    "Install Flanco Theme (Only 1.6.6 and 1.9.0)"
+    "Install Background Video (Only 1.7.0 and 1.9.0)"
+    "Install Animated Graphics (Only 1.6.6 and 1.9.0)"
     
     
     "Cancel Installation"
